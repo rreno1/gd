@@ -1,0 +1,22 @@
+# Private student records must never be committed or deployed.
+GD_Class_Record_2026.xlsx
+*.csv
+
+# Local Firebase and dependency state.
+.firebase/
+.firebaserc
+node_modules/
+firebase-debug.log*
+firestore-debug.log*
+ui-debug.log*
+
+# Local configuration. The public example file is safe to commit.
+.env
+.env.local
+public/js/firebase-config.js
+
+# Generated reports and operating-system files.
+coverage/
+test-results/
+.DS_Store
+Thumbs.db

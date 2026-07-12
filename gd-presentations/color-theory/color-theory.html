@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Theory in Graphic Design - Slide Deck</title>
+  <meta name="description" content="An interactive presentation on Color Theory and brand palettes by Romulo Ritz R. Renomeron Jr.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="color-theory.css">
+</head>
+<body>
+  <!-- Color Blindness SVG Filters -->
+  <svg style="position: absolute; width: 0; height: 0;" aria-hidden="true">
+    <defs>
+      <!-- Protanopia (Red-blind) -->
+      <filter id="protanopia">
+        <feColorMatrix type="matrix" values="0.567, 0.433, 0,     0, 0,
+                                             0.558, 0.442, 0,     0, 0,
+                                             0,     0.242, 0.758, 0, 0,
+                                             0,     0,     0,     1, 0" />
+      </filter>
+      <!-- Deuteranopia (Green-blind) -->
+      <filter id="deuteranopia">
+        <feColorMatrix type="matrix" values="0.625, 0.375, 0,   0, 0,
+                                             0.7,   0.3,   0,   0, 0,
+                                             0,     0.3,   0.7, 0, 0,
+                                             0,     0,     0,   1, 0" />
+      </filter>
+      <!-- Tritanopia (Blue-blind) -->
+      <filter id="tritanopia">
+        <feColorMatrix type="matrix" values="0.95,  0.05,  0,     0, 0,
+                                             0,     0.433, 0.567, 0, 0,
+                                             0,     0.475, 0.525, 0, 0,
+                                             0,     0,     0,     1, 0" />
+      </filter>
+    </defs>
+  </svg>
+
+  <div class="presentation-container">
+    <!-- Header -->
+    <header class="pres-header">
+      <div class="header-left">
+        <span class="badge">MLG College of Learning Inc.</span>
+        <span class="divider">|</span>
+        <span class="pres-title">Color Theory & Brand Psychology</span>
+      </div>
+      <div class="header-right">
+        <button id="btn-overview" title="Toggle Overview Mode (Key: O)" aria-label="Toggle Overview">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          Overview
+        </button>
+        <button id="btn-fullscreen" title="Toggle Fullscreen (Key: F)" aria-label="Toggle Fullscreen">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Presentation Viewport -->
+    <main class="slides-viewport" id="slides-viewport">
+      
+      <!-- Slide 1: Title -->
+      <section class="slide active" id="slide-1">
+        <div class="slide-content title-slide">
+          <div class="abstract-bg">
+            <div class="shape circle-1"></div>
+            <div class="shape circle-2"></div>
+            <div class="shape grid-pattern"></div>
+          </div>
+          <div class="hero-content">
+            <h1 class="slide-title-hero animate-pop">Color Theory & <span class="highlight-gradient">Brand Psychology</span></h1>
+            <p class="subtitle animate-fade-up">The Silent Language of Visual Communication</p>
+            <div class="instructor-card animate-fade-up">
+              <div class="instructor-info">
+                <span class="label">PRESENTED BY</span>
+                <h3 class="instructor-name">Romulo Ritz R. Renomeron Jr.</h3>
+                <p class="instructor-title">IT Instructor, MLG College of Learning Inc.</p>
+              </div>
+            </div>
+            <div class="controls-hint animate-fade-up">
+              <span>Use <strong>Arrow Keys</strong> or <strong>Space</strong> to navigate</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 2: What is Color? -->
+      <section class="slide" id="slide-2">
+        <div class="slide-content">
+          <div class="slide-layout-split">
+            <div class="split-left">
+              <span class="slide-number">02</span>
+              <h2>What is Color?</h2>
+              <p class="lead-paragraph">Color is how our eyes and brain perceive light waves. It is not an inherent property of objects, but rather light reflected off surfaces and received by human eyes.</p>
+              
+              <div class="details-box">
+                <ul>
+                  <li><strong>Light Spectrum:</strong> Human eyes see a narrow band of electromagnetic radiation (approx. 380nm to 740nm).</li>
+                  <li><strong>Human Eye Receptors:</strong> Cones detect color (Red, Green, Blue wavelengths), and rods detect light value (darkness/brightness).</li>
+                  <li>Objects absorb specific colors of light and reflect others. A red apple absorbs all colors except red, which reflects into your eyes.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="split-right">
+              <div class="color-spectrum-demo">
+                <div class="spectrum-bar">
+                  <div class="color-band" style="background:#ff0000;"></div>
+                  <div class="color-band" style="background:#ff7f00;"></div>
+                  <div class="color-band" style="background:#ffff00;"></div>
+                  <div class="color-band" style="background:#00ff00;"></div>
+                  <div class="color-band" style="background:#0000ff;"></div>
+                  <div class="color-band" style="background:#4b0082;"></div>
+                  <div class="color-band" style="background:#9400d3;"></div>
+                </div>
+                <div class="prism-visual">
+                  <svg width="240" height="150" viewBox="0 0 200 150">
+                    <!-- Light Ray -->
+                    <line x1="10" y1="90" x2="80" y2="75" stroke="#FFFFFF" stroke-width="3"></line>
+                    <!-- Prism Triangle -->
+                    <polygon points="100,20 60,110 140,110" fill="none" stroke="#FFFFFF" stroke-width="2"></polygon>
+                    <!-- Rainbow rays splitting -->
+                    <path d="M110,65 Q140,70 180,50" stroke="#FF0000" stroke-width="2" fill="none"></path>
+                    <path d="M110,67 Q140,75 180,70" stroke="#FFFF00" stroke-width="2" fill="none"></path>
+                    <path d="M110,69 Q140,80 180,90" stroke="#00FF00" stroke-width="2" fill="none"></path>
+                    <path d="M110,71 Q140,85 180,110" stroke="#0000FF" stroke-width="2" fill="none"></path>
+                    <path d="M110,73 Q140,90 180,130" stroke="#9400D3" stroke-width="2" fill="none"></path>
+                  </svg>
+                </div>
+                <p class="caption" style="text-align:center; color: var(--text-muted); font-size: 0.8rem; margin-top: 10px;">Refraction: White light dispersing into the visible color spectrum.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 3: RGB vs CMYK -->
+      <section class="slide" id="slide-3">
+        <div class="slide-content">
+          <div class="slide-layout-split">
+            <div class="split-left">
+              <span class="slide-number">03</span>
+              <h2>RGB vs. CMYK Color Models</h2>
+              <p class="lead-paragraph">Graphic designers work with two primary color modes, depending on whether the final layout is displayed on a digital screen or printed with ink.</p>
+              
+              <div class="details-box">
+                <ul>
+                  <li><strong>RGB (Additive Color):</strong> Used for digital screens (monitors, phones). Red, Green, and Blue light combine. Mixing all three at 100% intensity creates **White light**.</li>
+                  <li><strong>CMYK (Subtractive Color):</strong> Used for print. Cyan, Magenta, Yellow, and Key (Black) inks combine on paper. Mixing all three inks creates a muddy dark color, requiring **Key (Black)** for rich shadows.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="split-right">
+              <div class="widget-card">
+                <h3>Color Models Combinations</h3>
+                
+                <div class="mix-display-area">
+                  <!-- RGB Mixer Container -->
+                  <div class="rgb-cmyk-mixer" id="mixer-container">
+                    <!-- Circles rendered dynamically by JS to handle blend mode overlaps -->
+                  </div>
+                </div>
+
+                <div class="rhythm-controls">
+                  <button class="btn-secondary active" id="btn-mix-rgb">RGB (Digital Screens)</button>
+                  <button class="btn-secondary" id="btn-mix-cmyk">CMYK (Print Inks)</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 4: Clickable 12-hue Color Wheel -->
+      <section class="slide" id="slide-4">
+        <div class="slide-content">
+          <div class="slide-layout-split">
+            <div class="split-left">
+              <span class="slide-number">04</span>
+              <h2>The Color Wheel</h2>
+              <p class="lead-paragraph">The color wheel organizes hues into logical categories: Primary, Secondary, and Tertiary. It is the roadmap for selecting harmonious color schemes.</p>
+              
+              <div class="wheel-details-card" id="wheel-details">
+                <h4 id="wheel-color-title">Select a Hue</h4>
+                <p id="wheel-color-desc">Click any segment of the color wheel on the right to discover its color category, composition details, and design context.</p>
+              </div>
+            </div>
+            
+            <div class="split-right">
+              <div class="wheel-container">
+                <div class="color-wheel" id="color-wheel">
+                  <!-- Wedge segments rendered in JS using CSS conics or absolute wedges -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 5: Color Properties -->
+      <section class="slide" id="slide-5">
+        <div class="slide-content">
+          <span class="slide-number">05</span>
+          <h2>Color Properties: HSL</h2>
+          
+          <div class="slide-layout-split">
+            <div class="split-left">
+              <p class="lead-paragraph">Every color can be defined and modified by three key attributes: Hue, Saturation, and Lightness (Value).</p>
+              
+              <div class="details-box">
+                <ul>
+                  <li><strong>Hue:</strong> The position of a color on the 360-degree color wheel (e.g., Red, Blue).</li>
+                  <li><strong>Saturation:</strong> The purity or intensity of the color. 100% is vibrant; 0% is completely grey.</li>
+                  <li><strong>Lightness (Value):</strong> How much white or black is mixed in. 0% is black; 100% is white.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="split-right">
+              <div class="widget-card">
+                <h3>HSL Properties Laboratory</h3>
+                
+                <div class="properties-preview-box">
+                  <div class="prop-target-card" id="properties-demo-card">
+                    <span class="card-badge">SAMPLE CARD</span>
+                    <h4>Visual UI Element</h4>
+                    <p>Adjust the HSL sliders below to see the impact of color properties on contrast and readability.</p>
+                  </div>
+                </div>
+
+                <div class="control-panel">
+                  <div class="slider-control-row">
+                    <label for="hsl-hue">Hue (Angle): <span id="hsl-val-hue">200°</span></label>
+                    <input type="range" id="hsl-hue" min="0" max="360" value="200">
+                  </div>
+                  <div class="slider-control-row">
+                    <label for="hsl-sat">Saturation (Vibrancy): <span id="hsl-val-sat">75%</span></label>
+                    <input type="range" id="hsl-sat" min="0" max="100" value="75">
+                  </div>
+                  <div class="slider-control-row">
+                    <label for="hsl-light">Lightness (Value): <span id="hsl-val-light">50%</span></label>
+                    <input type="range" id="hsl-light" min="10" max="90" value="50">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 6: Color Harmonies -->
+      <section class="slide" id="slide-6">
+        <div class="slide-content">
+          <span class="slide-number">06</span>
+          <h2>Color Harmonies</h2>
+          
+          <div class="slide-layout-split">
+            <div class="split-left">
+              <p class="lead-paragraph">Color harmony refers to aesthetically pleasing combinations of colors. They follow mathematical formulas based on geometric angles on the color wheel.</p>
+              
+              <div class="harmony-selector-list">
+                <button class="h-selector-btn active" data-harmony="analogous">
+                  <strong>Analogous</strong> (Adjacent Hues, peaceful)
+                </button>
+                <button class="h-selector-btn" data-harmony="complementary">
+                  <strong>Complementary</strong> (Opposite Hues, high contrast)
+                </button>
+                <button class="h-selector-btn" data-harmony="triadic">
+                  <strong>Triadic</strong> (Equally Spaced Triangle, vibrant)
+                </button>
+                <button class="h-selector-btn" data-harmony="monochromatic">
+                  <strong>Monochromatic</strong> (Shades/Tints of Single Hue, elegant)
+                </button>
+              </div>
+            </div>
+
+            <div class="split-right">
+              <div class="widget-card">
+                <h3>Harmony Palette Generator</h3>
+                
+                <div class="picker-row">
+                  <label for="base-picker">Pick Base Color: </label>
+                  <input type="color" id="base-picker" value="#9b5de5">
+                </div>
+
+                <div class="palette-swatches" id="harmony-display">
+                  <!-- Injected Swatches -->
+                </div>
+
+                <div class="palette-details-box" id="harmony-desc-card">
+                  <h4>Analogous Harmony</h4>
+                  <p>Uses adjacent colors on the wheel. Highly comfortable, serene, and common in editorial layouts.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 7: Color Psychology -->
+      <section class="slide" id="slide-7">
+        <div class="slide-content">
+          <span class="slide-number">07</span>
+          <h2>Color Psychology</h2>
+          <p class="section-intro">Colors trigger psychological reactions, emotional associations, and cultural meanings. Designers use these triggers to communicate without words.</p>
+          
+          <div class="psychology-grid">
+            <div class="psych-card color-red" data-color="red">
+              <div class="card-front">
+                <span class="swatch-indicator" style="background:#ff4757;"></span>
+                <h3>Red</h3>
+                <p>Excitement & Urgency</p>
+              </div>
+              <div class="card-back">
+                <p>Passion, danger, energy, hunger, and urgency. Used by fast food and clearance sales to trigger physical stimulation.</p>
+              </div>
+            </div>
+            <div class="psych-card color-blue" data-color="blue">
+              <div class="card-front">
+                <span class="swatch-indicator" style="background:#2e86de;"></span>
+                <h3>Blue</h3>
+                <p>Trust & Security</p>
+              </div>
+              <div class="card-back">
+                <p>Stability, security, trust, and calmness. The most preferred corporate branding color. Heavily utilized by banks and social tech corporations.</p>
+              </div>
+            </div>
+            <div class="psych-card color-yellow" data-color="yellow">
+              <div class="card-front">
+                <span class="swatch-indicator" style="background:#feca57;"></span>
+                <h3>Yellow</h3>
+                <p>Optimism & Warning</p>
+              </div>
+              <div class="card-back">
+                <p>Optimism, warmth, energy, and warning. Grabs attention immediately (caution tape, taxi cabs). High contrast yellow triggers focus.</p>
+              </div>
+            </div>
+            <div class="psych-card color-green" data-color="green">
+              <div class="card-front">
+                <span class="swatch-indicator" style="background:#1dd1a1;"></span>
+                <h3>Green</h3>
+                <p>Growth & Health</p>
+              </div>
+              <div class="card-back">
+                <p>Growth, health, tranquility, and nature. Associates with wealth, biology, organic products, and ecological initiatives.</p>
+              </div>
+            </div>
+            <div class="psych-card color-purple" data-color="purple">
+              <div class="card-front">
+                <span class="swatch-indicator" style="background:#8b5cf6;"></span>
+                <h3>Purple</h3>
+                <p>Luxury & Mystery</p>
+              </div>
+              <div class="card-back">
+                <p>Royalty, luxury, wisdom, and spirituality. In branding, it communicates premium quality, intelligence, and mystery.</p>
+              </div>
+            </div>
+            <div class="psych-card color-black" data-color="black">
+              <div class="card-front">
+                <span class="swatch-indicator" style="background:#1e272e;"></span>
+                <h3>Black</h3>
+                <p>Power & Sophistication</p>
+              </div>
+              <div class="card-back">
+                <p>Sophistication, luxury, power, and minimalism. Standard for luxury brands, high fashion, and premium editorial layouts.</p>
+              </div>
+            </div>
+          </div>
+          <p class="helper-text" style="text-align:center; margin-top:20px;">Click the cards above to flip and read emotional triggers.</p>
+        </div>
+      </section>
+
+      <!-- Slide 8: Accessibility & Color Blindness -->
+      <section class="slide" id="slide-8">
+        <div class="slide-content">
+          <div class="slide-layout-split">
+            <div class="split-left">
+              <span class="slide-number">08</span>
+              <h2>Color & Accessibility</h2>
+              <p class="lead-paragraph">Inclusive design requires making layouts legible for color-blind readers. Color alone should never be the only indicator of critical data.</p>
+              
+              <div class="details-box">
+                <ul>
+                  <li><strong>Color Blindness (CVD):</strong> Affects roughly 8% of men and 0.5% of women.</li>
+                  <li><strong>Protanopia / Deuteranopia:</strong> Red-green blindness. Users struggle to tell warning red from success green.</li>
+                  <li><strong>Solution:</strong> Support colors with descriptive shapes, symbols, and typographic weights (e.g., adding checkmarks and cross icons next to colors).</li>
+                </ul>
+              </div>
+            </div>
+            <div class="split-right">
+              <div class="widget-card">
+                <h3>Color Vision Deficiency Simulator</h3>
+                
+                <div class="cvd-simulation-panel" id="cvd-canvas">
+                  <div class="cvd-test-card">
+                    <div class="cvd-badge warning">Warning Label</div>
+                    <div class="cvd-badge success">Success Check</div>
+                    <div class="cvd-badge normal-accent">Detail Pill</div>
+                  </div>
+                  <p class="cvd-explanation">Can you distinguish the warning badge from the success badge under this condition?</p>
+                </div>
+
+                <div class="rhythm-controls select-cvd-controls">
+                  <button class="btn-secondary active" data-cvd="normal">Normal</button>
+                  <button class="btn-secondary" data-cvd="protanopia">Protanopia</button>
+                  <button class="btn-secondary" data-cvd="deuteranopia">Deuteranopia</button>
+                  <button class="btn-secondary" data-cvd="tritanopia">Tritanopia</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 9: Branding Case Studies (Top 10 Global Brands) -->
+      <section class="slide" id="slide-9">
+        <div class="slide-content">
+          <span class="slide-number">09</span>
+          <h2>Color Palettes of the Top 10 Brands</h2>
+          <p class="section-intro">Select a global brand below to analyze their exact color palettes, harmony classifications, and emotional triggers.</p>
+          
+          <div class="brand-explorer-layout">
+            <div class="brand-list-side">
+              <button class="brand-btn active" data-brand="apple">Apple</button>
+              <button class="brand-btn" data-brand="google">Google</button>
+              <button class="brand-btn" data-brand="microsoft">Microsoft</button>
+              <button class="brand-btn" data-brand="amazon">Amazon</button>
+              <button class="brand-btn" data-brand="samsung">Samsung</button>
+              <button class="brand-btn" data-brand="toyota">Toyota</button>
+              <button class="brand-btn" data-brand="cocacola">Coca-Cola</button>
+              <button class="brand-btn" data-brand="mcdonalds">McDonald's</button>
+              <button class="brand-btn" data-brand="nike">Nike</button>
+              <button class="brand-btn" data-brand="disney">Disney</button>
+            </div>
+            
+            <div class="brand-details-card">
+              <div class="brand-header-info">
+                <h3 id="brand-name">Apple</h3>
+                <span class="badge" id="brand-harmony">Monochromatic</span>
+              </div>
+              
+              <div class="brand-swatch-container" id="brand-swatches">
+                <!-- Swatches injected by JS -->
+              </div>
+              
+              <div class="brand-analysis-box">
+                <h4>Design & Color Psychology Analysis</h4>
+                <p id="brand-desc">Apple utilizes a clean, monochromatic color scheme (whites, greys, blacks) which communicates minimalism, high sophistication, precision, and luxury design values. Keeping color presence tiny elevates product materials like brushed metals and glass.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 10: Interactive Color Review Quiz -->
+      <section class="slide" id="slide-10">
+        <div class="slide-content">
+          <span class="slide-number">10</span>
+          <h2>Color Theory Review Quiz</h2>
+          <p class="section-intro">Test your knowledge of color chemistry, harmonies, and brand systems.</p>
+          
+          <div class="quiz-container" id="quiz-block">
+            <div class="quiz-question-card" id="question-card">
+              <span class="question-number" id="quiz-q-num">Question 1 of 15</span>
+              <h3 class="question-text" id="quiz-q-text">Which color model is additive and used for digital display monitors?</h3>
+              <div class="quiz-options-list" id="quiz-options">
+                <!-- Option buttons injected in JS -->
+              </div>
+            </div>
+            <div class="quiz-results-card hidden" id="quiz-results">
+              <h3>Quiz Complete!</h3>
+              <p class="quiz-score" id="quiz-score-val">Score: 15 / 15</p>
+              <p class="quiz-feedback" id="quiz-feedback-text">Excellent! You have mastered Color Theory.</p>
+              <button class="btn-primary" id="btn-reset-quiz">Restart Review</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 11: Conclusion -->
+      <section class="slide" id="slide-11">
+        <div class="slide-content title-slide conclusion-slide">
+          <div class="abstract-bg">
+            <div class="shape circle-1"></div>
+            <div class="shape circle-2"></div>
+          </div>
+          <div class="hero-content">
+            <span class="slide-number">11</span>
+            <h1 class="slide-title-hero"><span class="highlight-gradient">Create Harmony!</span></h1>
+            <p class="subtitle">"In visual design, color is the keyboard, eyes are the hammers, and soul is the piano."</p>
+            
+            <div class="references-box">
+              <h3>Must-Know Color Design Tools</h3>
+              <div class="resources-grid">
+                <a href="https://coolors.co/" target="_blank" class="resource-card">
+                  <h4>Coolors</h4>
+                  <p>Incredibly fast color palette generator.</p>
+                </a>
+                <a href="https://color.adobe.com/" target="_blank" class="resource-card">
+                  <h4>Adobe Color</h4>
+                  <p>Extract palettes and explore color wheels.</p>
+                </a>
+                <a href="https://www.contrast-ratio.com/" target="_blank" class="resource-card">
+                  <h4>Contrast Ratio</h4>
+                  <p>Test colors for accessibility compliance.</p>
+                </a>
+                <a href="https://khroma.co/" target="_blank" class="resource-card">
+                  <h4>Khroma</h4>
+                  <p>AI color generator for creative designers.</p>
+                </a>
+              </div>
+            </div>
+
+            <div class="instructor-footer">
+              <p>MLG College of Learning Inc. — IT Department</p>
+              <p class="instructor-sub">Course: Introduction to Graphic Design | Instructor: Romulo Ritz R. Renomeron Jr.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer Controls -->
+    <footer class="pres-footer">
+      <div class="footer-left">
+        <div class="slide-progress-bar">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+      </div>
+      <div class="footer-right">
+        <span class="slide-counter"><strong id="current-slide-num">1</strong> / <span id="total-slide-num">11</span></span>
+        <div class="nav-controls">
+          <button id="btn-prev" aria-label="Previous Slide">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <button id="btn-next" aria-label="Next Slide">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Slide Overview Modal (Grid Layout) -->
+  <div id="overview-modal" class="overview-modal hidden">
+    <div class="overview-content">
+      <div class="overview-header">
+        <h2>Slide Overview</h2>
+        <button id="btn-close-overview" aria-label="Close Overview">&times;</button>
+      </div>
+      <div class="overview-grid" id="overview-grid">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </div>
+
+  <script src="color-theory.js"></script>
+</body>
+</html>

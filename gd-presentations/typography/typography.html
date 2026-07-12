@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typography in Graphic Design - Slide Deck</title>
+  <meta name="description" content="An interactive presentation on Typography fundamentals and hierarchy by Romulo Ritz R. Renomeron Jr.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="typography.css">
+</head>
+<body>
+  <div class="presentation-container">
+    <!-- Header -->
+    <header class="pres-header">
+      <div class="header-left">
+        <span class="badge">MLG College of Learning Inc.</span>
+        <span class="divider">|</span>
+        <span class="pres-title">Typography & Layout Hierarchy</span>
+      </div>
+      <div class="header-right">
+        <button id="btn-overview" title="Toggle Overview Mode (Key: O)" aria-label="Toggle Overview">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          Overview
+        </button>
+        <button id="btn-fullscreen" title="Toggle Fullscreen (Key: F)" aria-label="Toggle Fullscreen">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Presentation Viewport -->
+    <main class="slides-viewport" id="slides-viewport">
+      
+      <!-- Slide 1: Title -->
+      <section class="slide active" id="slide-1">
+        <div class="slide-content title-slide">
+          <div class="abstract-bg">
+            <div class="shape circle-1"></div>
+            <div class="shape circle-2"></div>
+            <div class="shape grid-pattern"></div>
+          </div>
+          <div class="hero-content">
+            <h1 class="slide-title-hero animate-pop">Typography: The <span class="highlight-gradient">Voice of Text</span></h1>
+            <p class="subtitle animate-fade-up">The Art & Science of Letter Arrangement</p>
+            <div class="instructor-card animate-fade-up">
+              <div class="instructor-info">
+                <span class="label">PRESENTED BY</span>
+                <h3 class="instructor-name">Romulo Ritz R. Renomeron Jr.</h3>
+                <p class="instructor-title">IT Instructor, MLG College of Learning Inc.</p>
+              </div>
+            </div>
+            <div class="controls-hint animate-fade-up">
+              <span>Use <strong>Arrow Keys</strong> or <strong>Space</strong> to navigate</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 2: What is Typography? -->
+      <section class="slide" id="slide-2">
+        <div class="slide-content">
+          <div class="slide-layout-split">
+            <div class="split-left">
+              <span class="slide-number">02</span>
+              <h2>What is Typography?</h2>
+              <p class="lead-paragraph">Typography is the art and technique of arranging type to make written language legible, readable, and appealing when displayed in visual communication.</p>
+              
+              <div class="details-box">
+                <ul>
+                  <li><strong>Utility vs. Emotion:</strong> It must convey literal information clearly, but its shape, thickness, and structure establish an emotional tone or voice.</li>
+                  <li>Good typography guides readers effortlessly; bad typography creates immediate cognitive strain and reading abandonment.</li>
+                  <li>In IT, typography is the core layout component of clean, professional User Interfaces (UI).</li>
+                </ul>
+              </div>
+            </div>
+            <div class="split-right">
+              <div class="typo-tone-comparison-card">
+                <h3>Visual Tone Comparison</h3>
+                <p class="helper-text">Hover or click to see how changing font alter communication voice:</p>
+                
+                <div class="tone-box-row">
+                  <div class="tone-box font-serif">
+                    <span class="tone-badge">SERIF (ELEGANT)</span>
+                    <p class="sample-text">Establish trust, classic heritage, and high elegance.</p>
+                  </div>
+                  <div class="tone-box font-sans">
+                    <span class="tone-badge accent">SANS (MODERN)</span>
+                    <p class="sample-text">Project clean simplicity, friendly accessibility, and modern tech.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 3: Font Classifications -->
+      <section class="slide" id="slide-3">
+        <div class="slide-content">
+          <span class="slide-number">03</span>
+          <h2>Font Classifications</h2>
+          <p class="section-intro">Typefaces are grouped into categories based on structural details. Recognizing these classes is essential for picking matching fonts.</p>
+          
+          <div class="class-selector-layout">
+            <div class="class-btns-col">
+              <button class="class-btn active" data-class="serif">Serif (Playfair)</button>
+              <button class="class-btn" data-class="sans">Sans-Serif (Outfit)</button>
+              <button class="class-btn" data-class="mono">Monospace (Space Mono)</button>
+              <button class="class-btn" data-class="script">Display / Script</button>
+            </div>
+            
+            <div class="class-preview-card">
+              <div class="class-preview-display" id="class-preview-text">
+                Aa
+              </div>
+              <div class="class-details-box">
+                <h4 id="class-title">Serif Typefaces</h4>
+                <p id="class-desc">Features small decorative 'feet' or strokes (serifs) at the ends of character stems. Historically originating from stone carvings. Communicates heritage, trust, authority, and editorial comfort.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 4: Typographic Anatomy -->
+      <section class="slide" id="slide-4">
+        <div class="slide-content">
+          <span class="slide-number">04</span>
+          <h2>Typographic Anatomy</h2>
+          <p class="section-intro">Just like bodies, letters have structural parts. Hover over each term below to highlight its exact anatomical location on the diagram.</p>
+          
+          <div class="anatomy-widget-layout">
+            <div class="anatomy-terms-side">
+              <button class="anatomy-term-btn" data-part="baseline">Baseline</button>
+              <button class="anatomy-term-btn" data-part="capheight">Cap Height</button>
+              <button class="anatomy-term-btn" data-part="xheight">x-Height</button>
+              <button class="anatomy-term-btn" data-part="ascender">Ascender</button>
+              <button class="anatomy-term-btn" data-part="descender">Descender</button>
+              <button class="anatomy-term-btn" data-part="bowl">Bowl</button>
+              <button class="anatomy-term-btn" data-part="counter">Counter</button>
+            </div>
+            
+            <div class="anatomy-diagram-canvas">
+              <!-- Grid & Guides lines -->
+              <div class="guide-line baseline" id="guide-baseline"><span class="guide-label">Baseline</span></div>
+              <div class="guide-line xheight" id="guide-xheight"><span class="guide-label">x-Height</span></div>
+              <div class="guide-line capheight" id="guide-capheight"><span class="guide-label">Cap Height</span></div>
+              <div class="guide-line ascender" id="guide-ascender"><span class="guide-label">Ascender Line</span></div>
+              <div class="guide-line descender" id="guide-descender"><span class="guide-label">Descender Line</span></div>
+
+              <!-- Main Visual Letters -->
+              <div class="anatomy-letters-wrapper">
+                <span class="letter-base">h</span>
+                <span class="letter-base">p</span>
+                
+                <!-- Overlay highlights -->
+                <div class="anatomy-highlight h-ascender" id="high-ascender"></div>
+                <div class="anatomy-highlight h-descender" id="high-descender"></div>
+                <div class="anatomy-highlight h-bowl" id="high-bowl"></div>
+                <div class="anatomy-highlight h-counter" id="high-counter"></div>
+                <div class="anatomy-highlight h-serif" id="high-serif-foot"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 5: Hierarchy & Scale -->
+      <section class="slide" id="slide-5">
+        <div class="slide-content">
+          <div class="slide-layout-split">
+            <div class="split-left">
+              <span class="slide-number">05</span>
+              <h2>Hierarchy & Scale</h2>
+              <p class="lead-paragraph">Visual hierarchy structures information. By sizing headings, subheadings, and paragraphs differently, you dictate the scanning order of your readers.</p>
+              
+              <div class="details-box">
+                <ul>
+                  <li><strong>Contrast:</strong> Make sure H1 headings are significantly larger than body text. Avoid minor size differences that cause visual conflict.</li>
+                  <li><strong>Proportion:</strong> Establish a scale system (e.g. Type Scale rules like Golden Ratio or Perfect Fourth scales).</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="split-right">
+              <div class="widget-card">
+                <h3>Visual Hierarchy Optimizer</h3>
+                
+                <div class="hierarchy-lab-preview">
+                  <div class="hier-lab-card" id="hier-lab-card">
+                    <h4 id="hier-lab-h">Card Headline</h4>
+                    <p id="hier-lab-p">This is supporting card description copy. It should look clean and subservient to the headline above.</p>
+                  </div>
+                </div>
+
+                <div class="control-panel">
+                  <div class="slider-control-row">
+                    <label for="hier-title-slider">Title Font Size: <span id="val-hier-title">1.25rem</span></label>
+                    <input type="range" id="hier-title-slider" min="1.1" max="2.8" step="0.1" value="1.2">
+                  </div>
+                  <div class="slider-control-row">
+                    <label for="hier-weight-slider">Title Font Weight: <span id="val-hier-weight">300</span></label>
+                    <input type="range" id="hier-weight-slider" min="300" max="800" step="100" value="300">
+                  </div>
+                  
+                  <div class="hierarchy-evaluation">
+                    <span>Hierarchy Status:</span>
+                    <span class="badge-status fail" id="hier-eval-status">POOR CONTRAST</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 6: Spacing: Leading, Tracking & Kerning -->
+      <section class="slide" id="slide-6">
+        <div class="slide-content">
+          <div class="slide-layout-split">
+            <div class="split-left">
+              <span class="slide-number">06</span>
+              <h2>Leading, Tracking & Kerning</h2>
+              <p class="lead-paragraph">Spacing dictates typography breathing room. Adjusting the distance between lines, words, and character pairs changes legibility instantly.</p>
+              
+              <div class="details-box">
+                <ul>
+                  <li><strong>Leading (Line Height):</strong> The vertical distance between baselines. Standard body leading is 1.4x to 1.6x.</li>
+                  <li><strong>Tracking (Letter Spacing):</strong> The overall spacing between all characters in a block. Tighten large headers; loosen small body tags.</li>
+                  <li><strong>Kerning:</strong> The targeted adjustment of spacing between two specific letter characters (e.g. A and V).</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="split-right">
+              <div class="widget-card">
+                <h3>Typography Spacing Laboratory</h3>
+                
+                <div class="properties-preview-box">
+                  <div id="spacing-preview-p" style="font-size: 0.9rem; line-height: 1.0; letter-spacing: 0px;">
+                    Graphic design relies heavily on spacing. Too little leading suffocates the text blocks, while too much tracking disconnects the individual letter groupings entirely.
+                  </div>
+                </div>
+
+                <div class="control-panel">
+                  <div class="slider-control-row">
+                    <label for="space-leading">Leading (Line Height): <span id="val-space-leading">1.0</span></label>
+                    <input type="range" id="space-leading" min="0.8" max="2.4" step="0.1" value="1.0">
+                  </div>
+                  <div class="slider-control-row">
+                    <label for="space-tracking">Tracking (Letter Spacing): <span id="val-space-tracking">0px</span></label>
+                    <input type="range" id="space-tracking" min="-3" max="10" step="0.5" value="0">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 7: Alignment & Line Length -->
+      <section class="slide" id="slide-7">
+        <div class="slide-content">
+          <div class="slide-layout-split">
+            <div class="split-left">
+              <span class="slide-number">07</span>
+              <h2>Alignment & Line Length</h2>
+              <p class="lead-paragraph">Line length determines how far the eye has to travel across a column. Spacing it incorrectly creates severe scanning fatigue.</p>
+              
+              <div class="details-box">
+                <ul>
+                  <li><strong>The Golden Rule:</strong> Keep body lines between **45 and 75 characters** (including spaces).</li>
+                  <li>Lines that are too wide tire the neck and make finding the next line difficult.</li>
+                  <li>Lines that are too narrow break semantic word flows, distracting the reader.</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="split-right">
+              <div class="widget-card">
+                <h3>Line Length Fatigue Calculator</h3>
+                
+                <div class="line-length-tester-container">
+                  <div class="alignment-selector-row">
+                    <button class="align-btn active" data-align="left">Left</button>
+                    <button class="align-btn" data-align="center">Center</button>
+                    <button class="align-btn" data-align="right">Right</button>
+                    <button class="align-btn" data-align="justify">Justify</button>
+                  </div>
+                  
+                  <div class="scroll-width-canvas">
+                    <div class="width-resizable-block" id="resizable-card" style="width: 200px;">
+                      <p id="resizable-p">Typography structures reading. Wider columns fit too many characters per line, while narrower columns force hyphenations.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="control-panel">
+                  <div class="slider-control-row">
+                    <label for="width-slider">Column Width: <span id="val-col-width">200px</span></label>
+                    <input type="range" id="width-slider" min="150" max="440" value="200">
+                  </div>
+                  
+                  <div class="fatigue-status-row">
+                    <span>Average Chars/Line: <strong id="calc-char-num">42</strong></span>
+                    <span class="badge-status fail" id="fatigue-badge">TOO NARROW</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 8: Typographic Pairings -->
+      <section class="slide" id="slide-8">
+        <div class="slide-content">
+          <div class="slide-layout-split">
+            <div class="split-left">
+              <span class="slide-number">08</span>
+              <h2>Typographic Pairings</h2>
+              <p class="lead-paragraph">Combining fonts requires balancing contrast and compatibility. Avoid pairing two fonts that look similar (creating visual conflict).</p>
+              
+              <div class="details-box">
+                <ul>
+                  <li><strong>The Golden Rule:</strong> Limit a composition to **2 typefaces** (or 3 maximum).</li>
+                  <li>Pair a high-personality **Display/Serif header** with a highly legible **Sans-Serif body**.</li>
+                  <li>Ensure typefaces share similar x-height structures or proportions to harmonize.</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="split-right">
+              <div class="widget-card">
+                <h3>Font Pairing Laboratory</h3>
+                
+                <div class="pairing-picker-row">
+                  <label for="select-pairing">Choose Pairing Style: </label>
+                  <select id="select-pairing">
+                    <option value="editorial">Editorial Classic (Serif + Sans)</option>
+                    <option value="tech">Modern Technical (Sans + Mono)</option>
+                    <option value="corporate">Clean Corporate (Sans + Serif)</option>
+                    <option value="conflict">Mismatched Conflict (Mono + Serif)</option>
+                  </select>
+                </div>
+
+                <div class="pairing-preview-area" id="pairing-preview">
+                  <h4 class="pair-h">Editorial Design</h4>
+                  <p class="pair-p">Serif headers contrast beautifully against modern geometric body text to guide reading.</p>
+                </div>
+
+                <div class="palette-details-box" id="pairing-critique">
+                  <h4>Editorial Classic Critique</h4>
+                  <p>A classic combination. The high-elegance Serif heading draws attention, while the geometric Sans-Serif body remains legible at small sizes.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 9: Legibility & Accessibility -->
+      <section class="slide" id="slide-9">
+        <div class="slide-content">
+          <span class="slide-number">09</span>
+          <h2>Accessibility & Legibility</h2>
+          <p class="section-intro">Inclusive digital products require clear typography sizes, ratios, and spacing variables to support users with low vision.</p>
+          
+          <div class="accessibility-rules-grid">
+            <div class="access-rule-card">
+              <div class="num">01</div>
+              <h4>16px Minimum</h4>
+              <p>Standard desktop body font size should never fall below 16px to prevent reading squint.</p>
+            </div>
+            <div class="access-rule-card">
+              <div class="num">02</div>
+              <h4>1.5x Line Height</h4>
+              <p>Ensure body copy leading is at least 1.5 times the font size to prevent overlapping lines.</p>
+            </div>
+            <div class="access-rule-card">
+              <div class="num">03</div>
+              <h4>Limited Widths</h4>
+              <p>Keep body block widths under 80 characters wide to avoid reading row navigation fatigue.</p>
+            </div>
+            <div class="access-rule-card">
+              <div class="num">04</div>
+              <h4>Contrast Ratios</h4>
+              <p>Text must maintain a 4.5:1 ratio against backgrounds (AA rating) for high readability.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 10: Interactive Typography Quiz -->
+      <section class="slide" id="slide-10">
+        <div class="slide-content">
+          <span class="slide-number">10</span>
+          <h2>Typography Review Quiz</h2>
+          <p class="section-intro">Test your typography structure and layout rules comprehension.</p>
+          
+          <div class="quiz-container" id="quiz-block">
+            <div class="quiz-question-card" id="question-card">
+              <span class="question-number" id="quiz-q-num">Question 1 of 15</span>
+              <h3 class="question-text" id="quiz-q-text">What is the baseline in typography anatomy?</h3>
+              <div class="quiz-options-list" id="quiz-options">
+                <!-- Option buttons injected in JS -->
+              </div>
+            </div>
+            <div class="quiz-results-card hidden" id="quiz-results">
+              <h3>Quiz Complete!</h3>
+              <p class="quiz-score" id="quiz-score-val">Score: 15 / 15</p>
+              <p class="quiz-feedback" id="quiz-feedback-text">Excellent! You have mastered Typographic Fundamentals.</p>
+              <button class="btn-primary" id="btn-reset-quiz">Restart Review</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 11: Conclusion -->
+      <section class="slide" id="slide-11">
+        <div class="slide-content title-slide conclusion-slide">
+          <div class="abstract-bg">
+            <div class="shape circle-1"></div>
+            <div class="shape circle-2"></div>
+          </div>
+          <div class="hero-content">
+            <span class="slide-number">11</span>
+            <h1 class="slide-title-hero"><span class="highlight-gradient">Type with Voice!</span></h1>
+            <p class="subtitle">"Typography is visual layout orchestrating silence."</p>
+            
+            <div class="references-box">
+              <h3>Recommended Typographic Resources</h3>
+              <div class="resources-grid">
+                <a href="https://fonts.google.com/" target="_blank" class="resource-card">
+                  <h4>Google Fonts</h4>
+                  <p>Explore free pairings and font families.</p>
+                </a>
+                <a href="https://type-scale.com/" target="_blank" class="resource-card">
+                  <h4>Type Scale</h4>
+                  <p>Visual font size scale calculator.</p>
+                </a>
+                <a href="https://wordmark.it/" target="_blank" class="resource-card">
+                  <h4>Wordmark.it</h4>
+                  <p>Preview words across your installed fonts.</p>
+                </a>
+                <a href="https://practicaltypography.com/" target="_blank" class="resource-card">
+                  <h4>Practical Typography</h4>
+                  <p>The ultimate guide to typography styling.</p>
+                </a>
+              </div>
+            </div>
+
+            <div class="instructor-footer">
+              <p>MLG College of Learning Inc. — IT Department</p>
+              <p class="instructor-sub">Course: Introduction to Graphic Design | Instructor: Romulo Ritz R. Renomeron Jr.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer Controls -->
+    <footer class="pres-footer">
+      <div class="footer-left">
+        <div class="slide-progress-bar">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+      </div>
+      <div class="footer-right">
+        <span class="slide-counter"><strong id="current-slide-num">1</strong> / <span id="total-slide-num">11</span></span>
+        <div class="nav-controls">
+          <button id="btn-prev" aria-label="Previous Slide">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <button id="btn-next" aria-label="Next Slide">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Slide Overview Modal (Grid Layout) -->
+  <div id="overview-modal" class="overview-modal hidden">
+    <div class="overview-content">
+      <div class="overview-header">
+        <h2>Slide Overview</h2>
+        <button id="btn-close-overview" aria-label="Close Overview">&times;</button>
+      </div>
+      <div class="overview-grid" id="overview-grid">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Anatomy hover cursor tooltip -->
+  <div id="anatomy-tooltip"></div>
+
+  <script src="typography.js"></script>
+</body>
+</html>
