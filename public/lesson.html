@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Interactive GD 101 lesson.">
+  <meta name="theme-color" content="#0d1114">
+  <title>Lesson — GD 101</title>
+  <link rel="stylesheet" href="styles/theme.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/course.css">
+</head>
+<body class="lesson-page">
+  <a class="skip-link" href="#lessonContent">Skip to lesson</a>
+  <nav class="lesson-nav" aria-label="Lesson navigation">
+    <a class="nav-brand" href="index.html"><span class="brand-mark" aria-hidden="true">G</span><span>GD 101</span></a>
+    <div class="lesson-nav-center"><span id="lessonNavTitle">Loading lesson…</span><div class="mini-progress" aria-hidden="true"><span id="miniProgressBar"></span></div><small id="lessonPosition">Section 1 of 1</small></div>
+    <div class="lesson-nav-actions"><button class="theme-toggle" type="button" data-theme-toggle><span data-theme-icon>Sun</span></button><button class="button ghost compact" type="button" id="outlineToggle" aria-controls="lessonOutline" aria-expanded="false">Outline</button><a class="button secondary compact" href="index.html#modules">Exit</a></div>
+  </nav>
+
+  <div class="lesson-loading" id="lessonLoading" role="status"><span class="spinner" aria-hidden="true"></span><p>Preparing your lesson…</p></div>
+  <section class="state-panel lesson-error" id="lessonError" hidden><span class="state-symbol" aria-hidden="true">!</span><div><h1>Lesson not found</h1><p>Choose one of the seven course modules from the home page.</p></div><a class="button primary" href="index.html#modules">View modules</a></section>
+
+  <div class="lesson-layout" id="lessonLayout" hidden>
+    <aside class="lesson-outline" id="lessonOutline" aria-label="Lesson outline">
+      <div class="outline-heading"><div><p class="eyebrow">Lesson outline</p><strong id="outlineTitle">Module</strong></div><button type="button" id="outlineClose" aria-label="Close outline">×</button></div>
+      <nav id="outlineList"></nav>
+      <div class="outline-footer"><a id="legacyDeckLink" href="#" target="_blank" rel="noopener noreferrer">Open the original interactive deck <span aria-hidden="true">↗</span></a><small>All legacy activities are preserved during migration.</small></div>
+    </aside>
+    <button class="lesson-outline-overlay" type="button" id="outlineOverlay" aria-label="Close lesson outline"></button>
+
+    <main class="lesson-content" id="lessonContent" tabindex="-1">
+      <article id="lessonStage" aria-live="polite"></article>
+      <footer class="lesson-controls">
+        <button class="button secondary" type="button" id="previousSection"><span aria-hidden="true">←</span> Previous</button>
+        <div><span id="controlPosition">1 / 1</span><small>Use ← and → to navigate</small></div>
+        <button class="button primary" type="button" id="nextSection">Next <span aria-hidden="true">→</span></button>
+      </footer>
+    </main>
+  </div>
+
+  <div class="toast-region" id="toastRegion" aria-live="polite"></div>
+  <script src="js/theme.js"></script><script src="js/navigation.js"></script><script src="data/course.js"></script><script src="js/firebase-config.js"></script><script src="js/firebase.js"></script><script src="js/auth.js"></script><script src="js/progress-store.js"></script><script src="js/activities.js"></script><script src="js/lesson-engine.js"></script>
+</body>
+</html>

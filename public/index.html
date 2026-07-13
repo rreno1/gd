@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Interactive Graphic Design Foundations learning portal for MLG College of Learning.">
+  <meta name="theme-color" content="#0d1114">
+  <title>GD 101 — Graphic Design Foundations</title>
+  <link rel="stylesheet" href="styles/theme.css">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body class="portal-page">
+  <a class="skip-link" href="#mainContent">Skip to content</a>
+  <nav class="portal-nav" aria-label="Primary navigation">
+    <button class="mobile-menu-toggle" type="button" data-mobile-toggle aria-label="Open navigation" aria-controls="primaryNav" aria-expanded="false"><span></span><span></span></button>
+    <a class="nav-brand" href="index.html" aria-label="GD 101 home"><span class="brand-mark" aria-hidden="true">G</span><span>GD 101</span></a>
+    <div class="nav-links mobile-drawer" id="primaryNav" data-mobile-drawer>
+      <div class="drawer-header"><div><small>GD 101</small><strong>Navigation</strong></div><button type="button" data-mobile-close aria-label="Close navigation">×</button></div>
+      <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+      <a class="nav-link" href="progress.html">My Progress</a>
+      <a class="nav-link" id="adminLink" href="admin.html" hidden>Admin</a>
+      <div class="drawer-footer"><span>Graphic Design Foundations</span><small>MLG College of Learning</small></div>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-toggle" type="button" data-theme-toggle><span data-theme-icon>Sun</span></button>
+      <button class="button primary compact" type="button" id="signInButton">Sign in with Google</button>
+      <div class="account-menu" id="accountMenu" hidden><span class="avatar" id="accountAvatar" aria-hidden="true">DS</span><span class="account-name" id="accountName"></span><button class="button ghost compact" type="button" id="signOutButton">Sign out</button></div>
+    </div>
+  </nav>
+  <button class="drawer-overlay" type="button" data-mobile-close aria-label="Close navigation"></button>
+
+  <div class="config-banner" id="configBanner" hidden>
+    <strong>Preview mode</strong><span>Connect Firebase before publishing to enable real accounts and cloud progress.</span>
+  </div>
+
+  <main id="mainContent">
+    <section class="hero-section">
+      <div class="hero-grid-art" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+      <div class="hero-copy">
+        <p class="eyebrow">MLG College of Learning · Academic Year 2026</p>
+        <h1>Learn the systems behind <em>strong visual design.</em></h1>
+        <p class="hero-lede">Seven in-depth modules combine visual theory, interactive practice, inclusive design, and precise feedback in one guided learning path.</p>
+        <div class="hero-actions"><a class="button primary" href="#modules">Explore modules</a><a class="button secondary" href="progress.html">View my progress</a></div>
+        <ul class="hero-facts" aria-label="Course facts"><li><strong>7</strong><span>Modules</span></li><li><strong>105</strong><span>Quiz questions</span></li><li><strong>1</strong><span>Shared lesson engine</span></li></ul>
+      </div>
+      <div class="hero-poster" aria-label="Graphic design course poster">
+        <div class="poster-top"><span>FOUNDATIONS</span><span>01—07</span></div>
+        <div class="poster-shape shape-one"></div><div class="poster-shape shape-two"></div>
+        <strong>Form<br>meets<br>purpose.</strong>
+        <div class="poster-bottom"><span>TYPE · COLOR · GRID</span><span>ACCESS FOR ALL</span></div>
+      </div>
+    </section>
+
+    <section class="course-intro" aria-labelledby="courseIntroTitle">
+      <div><p class="eyebrow">Course pathway</p><h2 id="courseIntroTitle">From visual vocabulary to accessible systems</h2></div>
+      <p>Start with the raw elements, learn how principles organize them, then deepen your control of type, color, and layout. The final module makes accessibility part of every design decision—not a checklist added at the end.</p>
+    </section>
+
+    <section class="modules-section" id="modules" aria-labelledby="modulesTitle">
+      <header class="section-header"><div><p class="eyebrow">Curriculum</p><h2 id="modulesTitle">Course modules</h2></div><p id="moduleAccessNote">Sign in with an approved student account to save learning progress and submit each assessment once.</p></header>
+      <div class="module-grid" id="moduleGrid" aria-live="polite"></div>
+    </section>
+
+    <section class="learning-promise">
+      <div><p class="eyebrow">Designed for active learning</p><h2>Read less. Notice more. Make decisions.</h2></div>
+      <div class="promise-grid"><article><span>01</span><h3>Understand</h3><p>Short explanations connect concepts to concrete design decisions.</p></article><article><span>02</span><h3>Experiment</h3><p>Native labs let you change variables and observe visual consequences.</p></article><article><span>03</span><h3>Reflect</h3><p>Review prompts surface misconceptions before the assessment.</p></article><article><span>04</span><h3>Demonstrate</h3><p>Every module closes with a focused 15-question quiz and summary.</p></article></div>
+    </section>
+  </main>
+
+  <footer class="portal-footer"><a class="nav-brand" href="index.html"><span class="brand-mark" aria-hidden="true">G</span><span>GD 101</span></a><p>Graphic Design Foundations · MLG College of Learning</p><p>© <span data-current-year>2026</span></p></footer>
+
+  <script src="js/theme.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="data/course.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/firebase.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

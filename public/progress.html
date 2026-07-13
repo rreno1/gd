@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Track GD 101 lesson progress, quiz results, and recent activity.">
+  <meta name="theme-color" content="#0d1114">
+  <title>My Progress — GD 101</title>
+  <link rel="stylesheet" href="styles/theme.css">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body class="portal-page">
+  <a class="skip-link" href="#mainContent">Skip to content</a>
+  <nav class="portal-nav" aria-label="Primary navigation">
+    <button class="mobile-menu-toggle" type="button" data-mobile-toggle aria-label="Open navigation" aria-controls="primaryNav" aria-expanded="false"><span></span><span></span></button>
+    <a class="nav-brand" href="index.html" aria-label="GD 101 home"><span class="brand-mark" aria-hidden="true">G</span><span>GD 101</span></a>
+    <div class="nav-links mobile-drawer" id="primaryNav" data-mobile-drawer>
+      <div class="drawer-header"><div><small>GD 101</small><strong>Navigation</strong></div><button type="button" data-mobile-close aria-label="Close navigation">×</button></div>
+      <a class="nav-link" href="index.html">Home</a><a class="nav-link active" aria-current="page" href="progress.html">My Progress</a><a class="nav-link" id="adminLink" href="admin.html" hidden>Admin</a>
+      <div class="drawer-footer"><span>Graphic Design Foundations</span><small>MLG College of Learning</small></div>
+    </div>
+    <div class="nav-actions"><button class="theme-toggle" type="button" data-theme-toggle><span data-theme-icon>Sun</span></button><button class="button primary compact" type="button" id="signInButton">Sign in with Google</button><div class="account-menu" id="accountMenu" hidden><span class="avatar" id="accountAvatar" aria-hidden="true">DS</span><span class="account-name" id="accountName"></span><button class="button ghost compact" type="button" id="signOutButton">Sign out</button></div></div>
+  </nav>
+  <button class="drawer-overlay" type="button" data-mobile-close aria-label="Close navigation"></button>
+
+  <main class="dashboard-page" id="mainContent">
+    <header class="dashboard-header"><div><p class="eyebrow">Student dashboard</p><h1>My progress</h1><p>See where you left off, what you have completed, and how your assessment results are developing.</p></div><a class="button secondary" href="index.html#modules">Continue learning</a></header>
+
+    <section class="state-panel" id="progressLoading" role="status"><span class="spinner" aria-hidden="true"></span><div><h2>Loading your progress</h2><p>Gathering the latest course activity.</p></div></section>
+    <section class="state-panel" id="progressSignedOut" hidden><span class="state-symbol" aria-hidden="true">↗</span><div><h2>Sign in to see your learning record</h2><p>Your approved Google account connects lesson history and quiz results across devices.</p></div><button class="button primary" type="button" id="progressSignInButton">Sign in with Google</button></section>
+    <section class="state-panel warning" id="approvalNotice" hidden><span class="state-symbol" aria-hidden="true">!</span><div><h2>Approval pending</h2><p>Your teacher needs to approve this account before modules open. Your profile has been saved.</p></div></section>
+
+    <div id="progressContent" hidden>
+      <section class="progress-overview">
+        <div class="overall-card"><div class="progress-ring" id="overallRing" style="--progress:0" role="img" aria-label="Overall progress: 0 percent"><strong id="overallPercent">0%</strong></div><div><p class="eyebrow">Overall completion</p><h2>Your course at a glance</h2><p id="overallSummary">Start a module to begin your learning record.</p></div></div>
+        <div class="stat-grid"><article><span>Completed</span><strong id="completedCount">0</strong><small>of 7 modules</small></article><article><span>In progress</span><strong id="activeCount">0</strong><small>modules started</small></article><article><span>Quiz average</span><strong id="quizAverage">—</strong><small>submitted quizzes</small></article><article><span>Latest activity</span><strong id="latestActivity">—</strong><small>most recent update</small></article></div>
+      </section>
+
+      <div class="dashboard-columns">
+        <section class="content-panel" aria-labelledby="moduleProgressTitle"><header><div><p class="eyebrow">Learning path</p><h2 id="moduleProgressTitle">Module progress</h2></div></header><div class="progress-list" id="progressList"></div></section>
+        <aside class="content-panel" aria-labelledby="activityTitle"><header><div><p class="eyebrow">Timeline</p><h2 id="activityTitle">Recent activity</h2></div></header><div class="activity-list" id="activityList"></div></aside>
+      </div>
+
+      <section class="content-panel" aria-labelledby="resultsTitle"><header><div><p class="eyebrow">Assessments</p><h2 id="resultsTitle">Quiz results</h2></div></header><div class="table-scroll"><table><thead><tr><th>Module</th><th>Score</th><th>Percentage</th><th>Submitted</th></tr></thead><tbody id="resultsBody"></tbody></table></div></section>
+    </div>
+  </main>
+
+  <footer class="portal-footer"><a class="nav-brand" href="index.html"><span class="brand-mark" aria-hidden="true">G</span><span>GD 101</span></a><p>Graphic Design Foundations · MLG College of Learning</p><p>© <span data-current-year>2026</span></p></footer>
+  <script src="js/theme.js"></script><script src="js/navigation.js"></script><script src="data/course.js"></script><script src="js/firebase-config.js"></script><script src="js/firebase.js"></script><script src="js/auth.js"></script><script src="js/progress.js"></script>
+</body>
+</html>

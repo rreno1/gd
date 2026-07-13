@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Secure GD 101 instructor dashboard.">
+  <meta name="theme-color" content="#0d1114">
+  <title>Instructor Dashboard — GD 101</title>
+  <link rel="stylesheet" href="styles/theme.css"><link rel="stylesheet" href="styles/main.css">
+</head>
+<body class="admin-page">
+  <a class="skip-link" href="#adminMain">Skip to dashboard</a>
+  <section class="admin-gate" id="adminGate" role="status"><span class="spinner" aria-hidden="true"></span><div><p class="eyebrow">Protected area</p><h1>Checking instructor access</h1><p>Administrator permission is verified from your Firebase ID token.</p></div></section>
+
+  <div class="admin-shell" id="adminShell" hidden>
+    <aside class="admin-sidebar">
+      <div class="admin-brand"><a class="nav-brand" href="index.html"><span class="brand-mark" aria-hidden="true">G</span><span>GD 101</span></a><span class="admin-badge">Admin</span></div>
+      <button class="admin-mobile-toggle" type="button" data-mobile-toggle aria-label="Open dashboard navigation" aria-controls="adminNavigation" aria-expanded="false">Menu</button>
+      <div class="admin-drawer mobile-drawer" id="adminNavigation" data-mobile-drawer>
+        <div class="drawer-header"><div><small>GD 101 Admin</small><strong>Navigation</strong></div><button type="button" data-mobile-close aria-label="Close dashboard navigation">×</button></div>
+        <nav class="admin-nav" aria-label="Dashboard sections">
+          <button class="active" type="button" data-admin-tab="overview"><span>01</span>Overview</button>
+          <button type="button" data-admin-tab="modules"><span>02</span>Course modules</button>
+          <button type="button" data-admin-tab="approvals"><span>03</span>Approvals <b id="approvalBadge" hidden>0</b></button>
+          <button type="button" data-admin-tab="grades"><span>04</span>Gradebook</button>
+          <button type="button" data-admin-tab="attendance"><span>05</span>Attendance</button>
+          <button type="button" data-admin-tab="accounts"><span>06</span>Accounts</button>
+        </nav>
+        <div class="admin-sidebar-footer"><button class="theme-toggle" type="button" data-theme-toggle><span data-theme-icon>Sun</span></button><div><strong id="adminName">Instructor</strong><small id="adminEmail"></small></div><button class="button ghost compact" id="signOutButton" type="button">Sign out</button></div>
+      </div>
+    </aside>
+    <button class="drawer-overlay" type="button" data-mobile-close aria-label="Close dashboard navigation"></button>
+
+    <main class="admin-main" id="adminMain">
+      <section class="admin-panel active" data-panel="overview">
+        <header class="dashboard-header"><div><p class="eyebrow">Instructor command center</p><h1>Course overview</h1><p>Monitor student access, module availability, progress, assessments, and attendance.</p></div><div class="live-status"><span></span>Live Firebase data</div></header>
+        <div class="admin-stat-grid"><article><span>Total students</span><strong id="statStudents">0</strong><small id="statApproved">0 approved</small></article><article><span>Pending approval</span><strong id="statPending">0</strong><small>accounts waiting</small></article><article><span>Average grade</span><strong id="statAverage">—</strong><small>submitted quizzes</small></article><article><span>Present today</span><strong id="statPresent">0</strong><small id="statDate">today</small></article></div>
+        <div class="dashboard-columns admin-overview-columns"><section class="content-panel"><header><div><p class="eyebrow">Completion</p><h2>Module performance</h2></div></header><div id="modulePerformance" class="performance-list"></div></section><section class="content-panel"><header><div><p class="eyebrow">Action queue</p><h2>Needs attention</h2></div></header><div id="attentionList" class="activity-list"></div></section></div>
+      </section>
+
+      <section class="admin-panel" data-panel="modules" hidden><header class="dashboard-header"><div><p class="eyebrow">Course controls</p><h1>Module availability</h1><p>Open or close modules for everyone or selected batches. Security rules restrict these changes to administrators.</p></div></header><div class="module-controls" id="moduleControls"></div></section>
+
+      <section class="admin-panel" data-panel="approvals" hidden><header class="dashboard-header"><div><p class="eyebrow">Access control</p><h1>Student approvals</h1><p>Verify new accounts, assign a batch, and approve only recognized students.</p></div></header><div class="content-panel"><div class="table-toolbar"><label>Filter accounts <input type="search" id="approvalSearch" placeholder="Name or email"></label></div><div class="table-scroll"><table><thead><tr><th>Student</th><th>Registered</th><th>Batch</th><th>Action</th></tr></thead><tbody id="approvalBody"></tbody></table></div></div></section>
+
+      <section class="admin-panel" data-panel="grades" hidden><header class="dashboard-header"><div><p class="eyebrow">Assessment record</p><h1>Gradebook</h1><p>Filter scores by student or batch and export the current view as CSV.</p></div><button class="button secondary" type="button" id="exportGrades">Export CSV</button></header><div class="content-panel"><div class="table-toolbar"><label>Search <input type="search" id="gradeSearch" placeholder="Student or email"></label><label>Batch <select id="gradeBatch"><option value="">All batches</option><option value="A">Batch A</option><option value="B">Batch B</option></select></label></div><div class="table-scroll"><table><thead id="gradeHead"></thead><tbody id="gradeBody"></tbody></table></div><div class="pagination" id="gradePagination"></div></div></section>
+
+      <section class="admin-panel" data-panel="attendance" hidden><header class="dashboard-header"><div><p class="eyebrow">Daily record</p><h1>Attendance</h1><p>Review sign-in attendance for a selected day and make instructor corrections.</p></div><label>Date <input type="date" id="attendanceDate"></label></header><div class="content-panel"><div class="table-scroll"><table><thead><tr><th>Student</th><th>Batch</th><th>Status</th><th>Checked in</th></tr></thead><tbody id="attendanceBody"></tbody></table></div><div class="pagination" id="attendancePagination"></div></div></section>
+
+      <section class="admin-panel" data-panel="accounts" hidden><header class="dashboard-header"><div><p class="eyebrow">Account directory</p><h1>Student accounts</h1><p>Update approval and batch assignment without exposing private authentication details.</p></div></header><div class="content-panel"><div class="table-toolbar"><label>Search <input type="search" id="accountSearch" placeholder="Name or email"></label></div><div class="table-scroll"><table><thead><tr><th>Student</th><th>Role</th><th>Status</th><th>Batch</th><th>Last active</th><th>Actions</th></tr></thead><tbody id="accountBody"></tbody></table></div><div class="pagination" id="accountPagination"></div></div></section>
+    </main>
+  </div>
+  <div class="toast-region" id="toastRegion" aria-live="polite"></div>
+  <script src="js/theme.js"></script><script src="js/navigation.js"></script><script src="data/course.js"></script><script src="js/firebase-config.js"></script><script src="js/firebase.js"></script><script src="js/auth.js"></script><script src="js/admin.js"></script>
+</body>
+</html>

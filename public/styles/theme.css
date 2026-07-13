@@ -1,0 +1,61 @@
+:root {
+  color-scheme: dark;
+  --bg: #0d1114;
+  --surface: #13191d;
+  --surface-2: #192126;
+  --surface-3: #202a30;
+  --text: #f2f5f4;
+  --muted: #a8b5b2;
+  --faint: #778581;
+  --line: #2b373b;
+  --accent: #43d6b5;
+  --accent-strong: #72e4ca;
+  --accent-ink: #07130f;
+  --warning: #f2cf62;
+  --danger: #ff7c83;
+  --success: #7cdd7a;
+  --info: #5eb7ff;
+  --shadow: 0 24px 70px rgba(0, 0, 0, .3);
+  --radius: 18px;
+  --radius-sm: 10px;
+  --nav-height: 72px;
+  --max-width: 1240px;
+  --font-display: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f1f3ef;
+  --surface: #ffffff;
+  --surface-2: #e8ece7;
+  --surface-3: #dce4df;
+  --text: #15201d;
+  --muted: #52615d;
+  --faint: #6c7c77;
+  --line: #cbd4cf;
+  --accent: #087c65;
+  --accent-strong: #056751;
+  --accent-ink: #ffffff;
+  --warning: #936b00;
+  --danger: #b72f3a;
+  --success: #287a2d;
+  --info: #176ea8;
+  --shadow: 0 24px 60px rgba(28, 46, 39, .12);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-body); line-height: 1.6; }
+button, input, select, textarea { color: inherit; font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+a { color: inherit; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 3px solid var(--accent-strong); outline-offset: 3px; }
+::selection { background: var(--accent); color: var(--accent-ink); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}

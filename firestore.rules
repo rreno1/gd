@@ -1,0 +1,344 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && request.auth.token.admin == true;
+    }
+
+    function isOwner(uid) {
+      return isSignedIn() && request.auth.uid == uid;
+    }
+
+    function isShortString(value, maxLength) {
+      return value is string && value.size() <= maxLength;
+    }
+
+    // Firestore Rules do not provide a general list predicate. The portal has at
+    // most 40 lesson sections, so each possible member is checked explicitly.
+    function isSectionIdList(values) {
+      return values is list
+        && values.size() <= 40
+        && (values.size() < 1 || isShortString(values[0], 100))
+        && (values.size() < 2 || isShortString(values[1], 100))
+        && (values.size() < 3 || isShortString(values[2], 100))
+        && (values.size() < 4 || isShortString(values[3], 100))
+        && (values.size() < 5 || isShortString(values[4], 100))
+        && (values.size() < 6 || isShortString(values[5], 100))
+        && (values.size() < 7 || isShortString(values[6], 100))
+        && (values.size() < 8 || isShortString(values[7], 100))
+        && (values.size() < 9 || isShortString(values[8], 100))
+        && (values.size() < 10 || isShortString(values[9], 100))
+        && (values.size() < 11 || isShortString(values[10], 100))
+        && (values.size() < 12 || isShortString(values[11], 100))
+        && (values.size() < 13 || isShortString(values[12], 100))
+        && (values.size() < 14 || isShortString(values[13], 100))
+        && (values.size() < 15 || isShortString(values[14], 100))
+        && (values.size() < 16 || isShortString(values[15], 100))
+        && (values.size() < 17 || isShortString(values[16], 100))
+        && (values.size() < 18 || isShortString(values[17], 100))
+        && (values.size() < 19 || isShortString(values[18], 100))
+        && (values.size() < 20 || isShortString(values[19], 100))
+        && (values.size() < 21 || isShortString(values[20], 100))
+        && (values.size() < 22 || isShortString(values[21], 100))
+        && (values.size() < 23 || isShortString(values[22], 100))
+        && (values.size() < 24 || isShortString(values[23], 100))
+        && (values.size() < 25 || isShortString(values[24], 100))
+        && (values.size() < 26 || isShortString(values[25], 100))
+        && (values.size() < 27 || isShortString(values[26], 100))
+        && (values.size() < 28 || isShortString(values[27], 100))
+        && (values.size() < 29 || isShortString(values[28], 100))
+        && (values.size() < 30 || isShortString(values[29], 100))
+        && (values.size() < 31 || isShortString(values[30], 100))
+        && (values.size() < 32 || isShortString(values[31], 100))
+        && (values.size() < 33 || isShortString(values[32], 100))
+        && (values.size() < 34 || isShortString(values[33], 100))
+        && (values.size() < 35 || isShortString(values[34], 100))
+        && (values.size() < 36 || isShortString(values[35], 100))
+        && (values.size() < 37 || isShortString(values[36], 100))
+        && (values.size() < 38 || isShortString(values[37], 100))
+        && (values.size() < 39 || isShortString(values[38], 100))
+        && (values.size() < 40 || isShortString(values[39], 100));
+    }
+
+    // Every GD quiz has exactly 15 four-option questions.
+    function isValidAnswerList(values) {
+      return values is list
+        && values.size() == 15
+        && values[0] is int && values[0] >= 0 && values[0] <= 3
+        && values[1] is int && values[1] >= 0 && values[1] <= 3
+        && values[2] is int && values[2] >= 0 && values[2] <= 3
+        && values[3] is int && values[3] >= 0 && values[3] <= 3
+        && values[4] is int && values[4] >= 0 && values[4] <= 3
+        && values[5] is int && values[5] >= 0 && values[5] <= 3
+        && values[6] is int && values[6] >= 0 && values[6] <= 3
+        && values[7] is int && values[7] >= 0 && values[7] <= 3
+        && values[8] is int && values[8] >= 0 && values[8] <= 3
+        && values[9] is int && values[9] >= 0 && values[9] <= 3
+        && values[10] is int && values[10] >= 0 && values[10] <= 3
+        && values[11] is int && values[11] >= 0 && values[11] <= 3
+        && values[12] is int && values[12] >= 0 && values[12] <= 3
+        && values[13] is int && values[13] >= 0 && values[13] <= 3
+        && values[14] is int && values[14] >= 0 && values[14] <= 3;
+    }
+
+    function answerKey(moduleId) {
+      return moduleId == 'introduction' ? [1,2,2,1,1,1,2,1,1,1,1,1,1,1,1]
+        : moduleId == 'elements-of-design' ? [2,1,0,1,1,2,2,1,2,1,0,1,1,1,2]
+        : moduleId == 'principles' ? [1,0,2,2,2,1,1,2,1,0,1,0,2,1,1]
+        : moduleId == 'typography' ? [2,1,3,1,3,1,0,1,1,2,1,1,2,1,1]
+        : moduleId == 'color-theory' ? [1,2,2,1,0,2,1,0,1,1,1,2,0,1,2]
+        : moduleId == 'grids' ? [1,0,1,1,0,0,1,1,1,1,1,1,1,1,1]
+        : moduleId == 'contrast-accessibility' ? [1,1,2,1,2,1,3,1,1,2,1,0,1,1,1]
+        : [];
+    }
+
+    function calculatedScore(moduleId, answers) {
+      let key = answerKey(moduleId);
+      return (answers[0] == key[0] ? 1 : 0)
+        + (answers[1] == key[1] ? 1 : 0)
+        + (answers[2] == key[2] ? 1 : 0)
+        + (answers[3] == key[3] ? 1 : 0)
+        + (answers[4] == key[4] ? 1 : 0)
+        + (answers[5] == key[5] ? 1 : 0)
+        + (answers[6] == key[6] ? 1 : 0)
+        + (answers[7] == key[7] ? 1 : 0)
+        + (answers[8] == key[8] ? 1 : 0)
+        + (answers[9] == key[9] ? 1 : 0)
+        + (answers[10] == key[10] ? 1 : 0)
+        + (answers[11] == key[11] ? 1 : 0)
+        + (answers[12] == key[12] ? 1 : 0)
+        + (answers[13] == key[13] ? 1 : 0)
+        + (answers[14] == key[14] ? 1 : 0);
+    }
+
+    function validUser(uid, data) {
+      return data.keys().hasOnly([
+          'uid', 'email', 'displayName', 'photoURL', 'role', 'approved',
+          'batch', 'createdAt', 'lastActiveAt'
+        ])
+        && data.keys().hasAll([
+          'uid', 'email', 'displayName', 'photoURL', 'role', 'approved',
+          'batch', 'createdAt', 'lastActiveAt'
+        ])
+        && data.uid == uid
+        && isShortString(data.email, 320)
+        && isShortString(data.displayName, 120)
+        && (data.photoURL == null || isShortString(data.photoURL, 2048))
+        && data.role in ['student', 'admin']
+        && data.approved is bool
+        && data.batch in ['', 'A', 'B']
+        && data.createdAt is timestamp
+        && data.lastActiveAt is timestamp;
+    }
+
+    function validOwnerUserCreate(uid, data) {
+      return validUser(uid, data)
+        && request.auth.token.email is string
+        && data.email == request.auth.token.email
+        && data.role == 'student'
+        && data.approved == false
+        && data.batch == ''
+        && data.createdAt == request.time
+        && data.lastActiveAt == request.time;
+    }
+
+    function validOwnerUserUpdate(uid, data) {
+      return validUser(uid, data)
+        && data.diff(resource.data).affectedKeys()
+          .hasOnly(['displayName', 'photoURL', 'lastActiveAt'])
+        && (!data.diff(resource.data).affectedKeys().hasAny(['lastActiveAt'])
+          || data.lastActiveAt == request.time);
+    }
+
+    function isApprovedStudent(uid) {
+      return get(/databases/$(database)/documents/users/$(uid)).data.approved == true;
+    }
+
+    function canUseModule(uid, moduleId) {
+      let profile = get(/databases/$(database)/documents/users/$(uid)).data;
+      let module = get(/databases/$(database)/documents/modules/$(moduleId)).data;
+      return profile.approved == true
+        && module.open == true
+        && (module.availableBatches.size() == 0
+          || module.availableBatches.toSet().hasAny([profile.batch]));
+    }
+
+    function validProgress(moduleId, data) {
+      return data.keys().hasOnly([
+          'moduleId', 'visitedSections', 'lastSection', 'percent', 'completed',
+          'startedAt', 'updatedAt', 'completedAt'
+        ])
+        && data.keys().hasAll([
+          'moduleId', 'visitedSections', 'lastSection', 'percent', 'completed',
+          'startedAt', 'updatedAt'
+        ])
+        && data.moduleId == moduleId
+        && isSectionIdList(data.visitedSections)
+        && isShortString(data.lastSection, 100)
+        && data.percent is number
+        && data.percent >= 0
+        && data.percent <= 100
+        && data.completed is bool
+        && data.startedAt is timestamp
+        && data.updatedAt is timestamp
+        && (
+          (data.completed == true
+            && data.percent == 100
+            && data.visitedSections.size() == 15
+            && 'completedAt' in data
+            && data.completedAt is timestamp)
+          || (data.completed == false
+            && data.percent < 100
+            && (!('completedAt' in data) || data.completedAt == null))
+        );
+    }
+
+    function validOwnerProgressCreate(moduleId, data) {
+      return validProgress(moduleId, data)
+        && data.startedAt == request.time
+        && data.updatedAt == request.time
+        && (data.completed == false
+          || (data.completedAt == request.time
+            && exists(/databases/$(database)/documents/users/$(request.auth.uid)/quizResults/$(moduleId))));
+    }
+
+    function validOwnerProgressUpdate(moduleId, data) {
+      return validProgress(moduleId, data)
+        && data.startedAt == resource.data.startedAt
+        && data.updatedAt == request.time
+        && data.percent >= resource.data.percent
+        && data.visitedSections.toSet().hasAll(resource.data.visitedSections)
+        && (resource.data.completed != true || data.completed == true)
+        && (data.completed == false
+          || (exists(/databases/$(database)/documents/users/$(request.auth.uid)/quizResults/$(moduleId))
+            && (resource.data.completed == true
+              ? data.completedAt == resource.data.completedAt
+              : data.completedAt == request.time)));
+    }
+
+    function validQuizResult(moduleId, data) {
+      return data.keys().hasOnly([
+          'moduleId', 'score', 'total', 'percentage', 'answers', 'attempts',
+          'submittedAt'
+        ])
+        && data.keys().hasAll([
+          'moduleId', 'score', 'total', 'percentage', 'answers', 'attempts',
+          'submittedAt'
+        ])
+        && data.moduleId == moduleId
+        && answerKey(moduleId).size() == 15
+        && data.score is int
+        && data.total is int
+        && data.total == 15
+        && isValidAnswerList(data.answers)
+        && data.score == calculatedScore(moduleId, data.answers)
+        && data.percentage is number
+        && data.percentage == data.score * 100 / data.total
+        && data.attempts is int
+        && data.attempts == 1
+        && data.submittedAt is timestamp;
+    }
+
+    function validAttendance(date, data) {
+      return data.keys().hasOnly(['date', 'status', 'checkedInAt', 'note'])
+        && data.keys().hasAll(['date', 'status'])
+        && data.date == date
+        && data.date.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
+        && data.status in ['present', 'late', 'absent', 'excused']
+        && (!('checkedInAt' in data) || data.checkedInAt == null || data.checkedInAt is timestamp)
+        && (!('note' in data) || isShortString(data.note, 500));
+    }
+
+    function validModule(moduleId, data) {
+      return data.keys().hasOnly([
+          'id', 'title', 'order', 'open', 'availableBatches', 'updatedAt',
+          'updatedBy'
+        ])
+        && data.keys().hasAll([
+          'id', 'title', 'order', 'open', 'availableBatches', 'updatedAt',
+          'updatedBy'
+        ])
+        && data.id == moduleId
+        && isShortString(data.title, 200)
+        && data.order is number
+        && data.order >= 0
+        && data.open is bool
+        && data.availableBatches is list
+        && data.availableBatches.size() <= 2
+        && data.availableBatches.toSet().hasOnly(['A', 'B'])
+        && data.updatedAt is timestamp
+        && isShortString(data.updatedBy, 128);
+    }
+
+    match /users/{uid} {
+      allow get: if isOwner(uid) || isAdmin();
+      allow list: if isAdmin();
+      allow create: if (isOwner(uid) && validOwnerUserCreate(uid, request.resource.data))
+        || (isAdmin() && validUser(uid, request.resource.data));
+      allow update: if (isOwner(uid) && validOwnerUserUpdate(uid, request.resource.data))
+        || (isAdmin() && validUser(uid, request.resource.data));
+      allow delete: if isAdmin();
+
+      match /progress/{moduleId} {
+        allow read: if isOwner(uid) || isAdmin();
+        allow create: if (isOwner(uid) && canUseModule(uid, moduleId)
+            && validOwnerProgressCreate(moduleId, request.resource.data))
+          || (isAdmin() && validProgress(moduleId, request.resource.data));
+        allow update: if (isOwner(uid) && canUseModule(uid, moduleId)
+            && validOwnerProgressUpdate(moduleId, request.resource.data))
+          || (isAdmin() && validProgress(moduleId, request.resource.data));
+        allow delete: if isAdmin();
+      }
+
+      match /quizResults/{moduleId} {
+        allow read: if isOwner(uid) || isAdmin();
+        allow create: if (isOwner(uid) && canUseModule(uid, moduleId)
+            && validQuizResult(moduleId, request.resource.data)
+            && request.resource.data.submittedAt == request.time)
+          || (isAdmin() && validQuizResult(moduleId, request.resource.data));
+        allow update, delete: if isAdmin();
+      }
+
+      match /attendance/{date} {
+        allow read: if isOwner(uid) || isAdmin();
+        allow create: if (isOwner(uid) && isApprovedStudent(uid)
+            && validAttendance(date, request.resource.data)
+            && request.resource.data.status == 'present'
+            && request.resource.data.checkedInAt == request.time)
+          || (isAdmin() && validAttendance(date, request.resource.data));
+        allow update, delete: if isAdmin();
+      }
+    }
+
+    match /modules/{moduleId} {
+      allow read: if true;
+      allow create, update: if isAdmin()
+        && validModule(moduleId, request.resource.data);
+      allow delete: if isAdmin();
+    }
+
+    // Collection-group queries need recursive wildcard matches in Rules v2.
+    // Individual owner reads remain governed by the fixed user paths above.
+    match /{path=**}/progress/{moduleId} {
+      allow list: if isAdmin();
+    }
+
+    match /{path=**}/quizResults/{moduleId} {
+      allow list: if isAdmin();
+    }
+
+    match /{path=**}/attendance/{date} {
+      allow list: if isAdmin();
+    }
+
+    // Explicit default deny for every document not covered above.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
