@@ -18,7 +18,6 @@
     pages: { grades: 1, attendance: 1, accounts: 1 },
     demoAttendance: new Map(),
   };
-
   let resolveAuthReady;
   let bootstrapped = false;
   let dashboardOpen = false;
