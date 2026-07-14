@@ -266,6 +266,19 @@
     return updateDoc(doc(firestoreDb(), 'users', uid), patch);
   }
 
+  async function deleteUser(uid) {
+    if (state.preview) {
+      const index = state.users.findIndex(item => item.uid === uid);
+      if (index === -1) throw new Error('Account not found.');
+      state.users.splice(index, 1);
+      return;
+    }
+    const method = serviceMethod('deleteUser');
+    if (method) return method(uid);
+    const { doc, deleteDoc } = requireFirestoreParts(['doc', 'deleteDoc']);
+    return deleteDoc(doc(firestoreDb(), 'users', uid));
+  }
+
   async function saveModule(module) {
     if (state.preview) return;
     const record = {
@@ -797,8 +810,9 @@
 
   function attendanceRows() {
     const map = attendanceMap();
+    const batch = byId('attendanceBatch')?.value || '';
     return approvedStudents()
-      .slice()
+      .filter(user => !batch || user.batch === batch)
       .sort((a, b) => String(a.displayName || '').localeCompare(String(b.displayName || '')))
       .map(user => ({ user, record: map.get(user.uid) || { uid: user.uid, date: state.attendanceDate, status: 'absent', checkedInAt: null } }));
   }
@@ -930,8 +944,17 @@
         });
         batchCell.append(select);
         const actions = make('td');
+        const actionContainer = make('div');
+        actionContainer.style.display = 'flex';
+        actionContainer.style.gap = '0.5rem';
+        actionContainer.style.alignItems = 'center';
+
         const approval = make('button', `button ${user.approved ? 'ghost' : 'primary'} compact`, user.approved ? 'Revoke' : 'Approve');
         approval.type = 'button';
+
+        const deleteBtn = make('button', 'button danger compact', 'Delete');
+        deleteBtn.type = 'button';
+
         approval.addEventListener('click', async () => {
           const next = !user.approved;
           const chosenBatch = select.value;
@@ -941,6 +964,7 @@
             return;
           }
           approval.disabled = true;
+          deleteBtn.disabled = true;
           select.disabled = true;
           try {
             await updateUser(user.uid, { approved: next, batch: chosenBatch });
@@ -950,11 +974,33 @@
             renderAll();
           } catch (error) {
             approval.disabled = false;
+            deleteBtn.disabled = false;
             select.disabled = false;
             toast(error?.message || 'Unable to update account access.', 'error');
           }
         });
-        actions.append(approval);
+
+        deleteBtn.addEventListener('click', async () => {
+          if (confirm(`Are you sure you want to delete the account for ${user.displayName || user.email || 'this student'}? This action cannot be undone.`)) {
+            deleteBtn.disabled = true;
+            approval.disabled = true;
+            select.disabled = true;
+            try {
+              await deleteUser(user.uid);
+              state.users = state.users.filter(item => item.uid !== user.uid);
+              toast(`${user.displayName || user.email || 'Student'} deleted successfully.`, 'success');
+              renderAll();
+            } catch (error) {
+              deleteBtn.disabled = false;
+              approval.disabled = false;
+              select.disabled = false;
+              toast(error?.message || 'Unable to delete the account.', 'error');
+            }
+          }
+        });
+
+        actionContainer.append(approval, deleteBtn);
+        actions.append(actionContainer);
         row.append(
           userCell(user),
           role,
@@ -1077,6 +1123,7 @@
     byId('gradeBatch')?.addEventListener('change', () => { state.pages.grades = 1; renderGradebook(); });
     byId('accountSearch')?.addEventListener('input', () => { state.pages.accounts = 1; renderAccounts(); });
     byId('attendanceDate')?.addEventListener('change', changeAttendanceDate);
+    byId('attendanceBatch')?.addEventListener('change', () => { state.pages.attendance = 1; renderAttendance(); });
     byId('exportGrades')?.addEventListener('click', exportGrades);
   }
 

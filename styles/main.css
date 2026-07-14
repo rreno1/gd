@@ -186,7 +186,52 @@ td small { color: var(--faint); }
 .switch[aria-checked="true"]::after { background: var(--success); transform: translateX(22px); }
 .table-toolbar { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; }
 label { color: var(--muted); font-size: .75rem; font-weight: 750; }
-input, select, textarea { min-height: 42px; margin-left: .45rem; padding: .55rem .7rem; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--text); }
+input, textarea { min-height: 42px; margin-left: .45rem; padding: .55rem .7rem; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--text); }
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  min-height: 42px;
+  margin-left: .45rem;
+  padding: .55rem 2.25rem .55rem .7rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background-color: var(--surface-2);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='2.5' stroke='%23a8b5b2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='m19.5 8.25-7.5 7.5-7.5-7.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
+  color: var(--text);
+  font-size: .82rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+:root[data-theme="light"] select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='2.5' stroke='%2352615d'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='m19.5 8.25-7.5 7.5-7.5-7.5'/%3E%3C/svg%3E");
+}
+select:hover:not(:disabled) {
+  border-color: var(--accent);
+  background-color: var(--surface-3);
+}
+:root[data-theme="light"] select:hover:not(:disabled) {
+  background-color: var(--surface-2);
+}
+select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(67, 214, 181, 0.22);
+}
+select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+select option {
+  background-color: var(--surface);
+  color: var(--text);
+  padding: 0.5rem;
+}
 .pagination { display: flex; align-items: center; justify-content: flex-end; gap: .6rem; padding-top: 1rem; color: var(--muted); font-size: .72rem; }
 .pagination button { min-width: 34px; min-height: 34px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-2); color: var(--text); cursor: pointer; }
 .toast-region { position: fixed; z-index: 200; right: 1rem; bottom: 1rem; display: grid; gap: .6rem; }

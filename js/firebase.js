@@ -87,6 +87,7 @@
       createQuizResult: fail,
       listUsers: fail,
       updateUser: fail,
+      deleteUser: fail,
       listAllProgress: fail,
       listAllQuizResults: fail,
       listAllAttendance: fail,
@@ -249,6 +250,14 @@
         state.profiles[uid] = { ...state.profiles[uid], ...patch };
         persist();
         return state.profiles[uid];
+      },
+      async deleteUser(uid) {
+        if (!state.profiles[uid]) throw friendlyError('Student profile not found.', 'profile/not-found');
+        delete state.profiles[uid];
+        delete state.progress[uid];
+        delete state.quizzes[uid];
+        delete state.attendance[uid];
+        persist();
       },
       async listAllProgress() {
         return Object.entries(state.progress).flatMap(([uid, records]) =>
@@ -451,6 +460,9 @@
       async updateUser(uid, patch) {
         await dbApi.updateDoc(userDoc(uid), patch);
         return documentData(userDoc(uid));
+      },
+      async deleteUser(uid) {
+        await dbApi.deleteDoc(userDoc(uid));
       },
       async listAllProgress() {
         const snapshot = await dbApi.getDocs(dbApi.collectionGroup(db, 'progress'));
