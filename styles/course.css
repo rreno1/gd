@@ -126,3 +126,15 @@
   .lesson-page { height: auto; min-height: 100vh; overflow: visible; }.lesson-nav { position: sticky; top: 0; height: 64px; padding: 0 .7rem; }.lesson-nav .nav-brand > span:last-child, .lesson-nav-actions .theme-toggle { display: none; }.lesson-layout { height: auto; }.lesson-content { overflow: visible; }.lesson-section, .lesson-cover { min-height: calc(100vh - 150px); }.lesson-controls { min-height: 86px; padding: .75rem; }.lesson-controls > div small { display: none; }.lesson-controls .button { min-width: 0; padding: .65rem .8rem; }
   .objective-list, .term-grid, .misconception-list, .quiz-options, .check-options { grid-template-columns: 1fr; }.lesson-example { grid-template-columns: 1fr; }.color-preview { grid-template-columns: repeat(2, 1fr); }.color-swatch { min-height: 170px; }.quiz-submit { align-items: stretch; flex-direction: column; }
 }
+
+.button.icon-only {
+  width: 46px;
+  min-width: 46px;
+  height: 46px;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 1.1rem !important;
+}

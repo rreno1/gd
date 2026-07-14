@@ -7,8 +7,7 @@
     steps: [],
     index: 0,
     visited: new Set(),
-    quizResult: null,
-    touchStartX: null
+    quizResult: null
   };
 
   const dom = {};
@@ -351,7 +350,6 @@
     dom.miniProgress.style.width = `${progress}%`;
     dom.previous.disabled = state.index === 0;
     dom.next.disabled = state.index === state.steps.length - 1;
-    dom.next.firstChild && (dom.next.firstChild.textContent = state.index === state.steps.length - 2 ? 'Finish ' : 'Next ');
     document.title = `${step.label} — ${state.lesson.title}`;
     history.replaceState(null, '', `?module=${encodeURIComponent(state.module.id)}&section=${encodeURIComponent(step.id)}`);
     renderOutline();
@@ -451,11 +449,6 @@
         if (event.key === 'ArrowLeft') goTo(state.index - 1);
         if (event.key === 'ArrowRight') goTo(state.index + 1);
       });
-      dom.content.addEventListener('touchstart', event => {
-        const interactive = event.target.closest?.('button, a, input, select, textarea, summary, [contenteditable="true"]');
-        state.touchStartX = interactive ? null : (event.changedTouches[0]?.clientX ?? null);
-      }, { passive: true });
-      dom.content.addEventListener('touchend', event => { const end = event.changedTouches[0]?.clientX; if (state.touchStartX === null || end === undefined) return; const delta = end - state.touchStartX; if (Math.abs(delta) > 70) goTo(state.index + (delta < 0 ? 1 : -1)); state.touchStartX = null; }, { passive: true });
     } catch (error) {
       console.error(error); showLessonError('Lesson unavailable', 'The lesson could not be prepared. Check your connection and try again.');
     }

@@ -63,6 +63,47 @@
   // 2. Setup loader and transition interceptors on DOM ready
   document.addEventListener('DOMContentLoaded', () => {
     syncButtons();
+
+    // ── Security Protections (Anti-Copy/Anti-Screenshot) ──
+    document.addEventListener('contextmenu', event => event.preventDefault());
+    document.addEventListener('copy', event => event.preventDefault());
+    document.addEventListener('cut', event => event.preventDefault());
+    document.addEventListener('paste', event => event.preventDefault());
+
+    document.addEventListener('keydown', event => {
+      const isCmdOrCtrl = event.metaKey || event.ctrlKey;
+      if (isCmdOrCtrl && (event.key === 'c' || event.key === 'C' || event.key === 'v' || event.key === 'V' || event.key === 'x' || event.key === 'X')) {
+        event.preventDefault();
+      }
+      if (event.key === 'PrintScreen') {
+        event.preventDefault();
+        document.body.classList.add('blurred-screenshot');
+        navigator.clipboard?.writeText?.('');
+      }
+    });
+
+    document.addEventListener('keyup', event => {
+      if (event.key === 'PrintScreen') {
+        setTimeout(() => {
+          document.body.classList.remove('blurred-screenshot');
+        }, 1000);
+      }
+    });
+
+    window.addEventListener('blur', () => {
+      document.body.classList.add('blurred-screenshot');
+    });
+    window.addEventListener('focus', () => {
+      document.body.classList.remove('blurred-screenshot');
+    });
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        document.body.classList.add('blurred-screenshot');
+      } else {
+        document.body.classList.remove('blurred-screenshot');
+      }
+    });
+
     document.querySelectorAll('[data-theme-toggle]').forEach(button => {
       button.addEventListener('click', () => {
         root.dataset.theme = root.dataset.theme === 'light' ? 'dark' : 'light';

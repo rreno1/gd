@@ -87,3 +87,24 @@ img { max-width: 100%; }
 @keyframes page-spin {
   to { transform: rotate(360deg); }
 }
+
+/* ── Copy, Screenshot and Selection Protections ────────── */
+body, html, main, article, section, p, li, span, strong, dt, dd, h1, h2, h3, h4, h5, h6 {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+}
+
+input, textarea, select {
+  user-select: text !important;
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+}
+
+body.blurred-screenshot {
+  filter: blur(25px) grayscale(1) brightness(0.3) !important;
+  pointer-events: none !important;
+  transition: filter 0.15s ease;
+}
