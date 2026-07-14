@@ -114,9 +114,19 @@ service cloud.firestore {
       allow read: if true;
       allow write: if isAdmin();
     }
+
+    // Collection-group queries for the admin dashboard
+    match /{path=**}/progress/{moduleId} {
+      allow list: if isAdmin();
+    }
+    match /{path=**}/quizResults/{moduleId} {
+      allow list: if isAdmin();
+    }
+    match /{path=**}/attendance/{date} {
+      allow list: if isAdmin();
+    }
   }
 }
-```
 ```
 
 ---
