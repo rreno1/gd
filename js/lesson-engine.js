@@ -44,8 +44,8 @@
 
   async function lessonAccess(module) {
     const services = await window.GD.firebaseReady;
-    // Local preview intentionally keeps every lesson inspectable. Published
-    // Firebase deployments enforce the same approval/module gate as Home.
+    // Local preview keeps every lesson inspectable. Live course gates
+    // enforce the same approval/module rules as Home.
     if (!services.configured) return { allowed: true };
     const authState = window.GD.authState?.ready ? window.GD.authState : await window.GD.authReady;
     if (!authState.user) return { allowed: false, title: 'Sign in required', reason: 'Sign in with your approved student account before opening this lesson.' };

@@ -1,4 +1,4 @@
-# Private student records must never be committed or deployed.
+# Private student records must never be committed.
 GD_Class_Record_2026.xlsx
 *.csv
 

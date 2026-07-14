@@ -63,7 +63,8 @@
 .review-list { display: grid; gap: .55rem; }
 .review-list details { border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface); }
 .review-list summary { padding: 1rem; font-weight: 750; cursor: pointer; }.review-list details p { margin: 0; padding: 0 1rem 1rem; color: var(--muted); }
-.legacy-callout { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1rem; padding: 1rem 1.2rem; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface); text-decoration: none; }.legacy-callout span { color: var(--accent-strong); font-size: .78rem; }
+
+
 
 .interactive-lab { display: grid; gap: 2rem; }.lab-intro { max-width: 770px; }.lab-intro h2 { margin-bottom: .7rem; font-size: clamp(2rem, 4vw, 3.4rem); }.lab-intro > p:not(.eyebrow) { color: var(--muted); }.lab-note { padding-left: 1rem; border-left: 3px solid var(--warning); font-size: .8rem; }
 .lab-body { display: grid; grid-template-columns: minmax(220px, .7fr) minmax(0, 1.3fr); gap: 1rem; }
@@ -94,5 +95,5 @@
 
 @media (max-width: 620px) {
   .lesson-page { height: auto; min-height: 100vh; overflow: visible; }.lesson-nav { position: sticky; top: 0; height: 64px; padding: 0 .7rem; }.lesson-nav .nav-brand > span:last-child, .lesson-nav-actions .theme-toggle { display: none; }.lesson-layout { height: auto; }.lesson-content { overflow: visible; }.lesson-section, .lesson-cover { min-height: calc(100vh - 150px); }.lesson-controls { min-height: 86px; padding: .75rem; }.lesson-controls > div small { display: none; }.lesson-controls .button { min-width: 0; padding: .65rem .8rem; }
-  .objective-list, .term-grid, .misconception-list, .quiz-options { grid-template-columns: 1fr; }.lesson-example { grid-template-columns: 1fr; }.legacy-callout { align-items: flex-start; flex-direction: column; }.color-preview { grid-template-columns: repeat(2, 1fr); }.color-swatch { min-height: 170px; }.quiz-submit { align-items: stretch; flex-direction: column; }
+  .objective-list, .term-grid, .misconception-list, .quiz-options { grid-template-columns: 1fr; }.lesson-example { grid-template-columns: 1fr; }.color-preview { grid-template-columns: repeat(2, 1fr); }.color-swatch { min-height: 170px; }.quiz-submit { align-items: stretch; flex-direction: column; }
 }
