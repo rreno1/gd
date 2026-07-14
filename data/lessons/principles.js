@@ -12,63 +12,63 @@ window.GDLessons["principles"] = {
   "terms": [
     {
       "term": "Balance",
-      "definition": "The distribution of visual weight across a composition so no single area overwhelms another."
+      "definition": "The distribution of visual weight in a composition. Visual weight is determined by size, color, value, and texture."
     },
     {
       "term": "Contrast",
-      "definition": "The degree of difference between two or more elements, used to create visual interest and direct attention."
-    },
-    {
-      "term": "Emphasis",
-      "definition": "The strategy of making one element or area the dominant focal point of a composition."
-    },
-    {
-      "term": "Movement",
-      "definition": "The path a viewer's eye follows through a design, guided by visual cues like lines, shapes, and color."
-    },
-    {
-      "term": "Pattern",
-      "definition": "The planned repetition of a visual motif to create structure, rhythm, or decorative unity."
-    },
-    {
-      "term": "Rhythm",
-      "definition": "A sense of organized movement created by repeating elements at regular or varied intervals."
-    },
-    {
-      "term": "Unity",
-      "definition": "The quality of visual coherence that makes all parts of a design feel like they belong together."
-    },
-    {
-      "term": "Proportion",
-      "definition": "The size relationship between elements within a composition and between parts and the whole."
-    },
-    {
-      "term": "Hierarchy",
-      "definition": "The arrangement of elements to signal their relative importance and guide reading order."
-    },
-    {
-      "term": "Repetition",
-      "definition": "The reuse of similar visual elements like color, shape, or type style to create consistency."
-    },
-    {
-      "term": "Variety",
-      "definition": "The introduction of differences and visual diversity to prevent monotony and sustain interest."
+      "definition": "The arrangement of opposite elements (light vs. dark, rough vs. smooth, large vs. small) to make a specific element stand out and create visual interest."
     },
     {
       "term": "Alignment",
-      "definition": "The placement of elements along a common edge or axis to create order and visual connection."
+      "definition": "Connecting elements together on an invisible axis. It establishes order, cleanliness, and professionalism, preventing layouts from looking scattered or random."
+    },
+    {
+      "term": "Hierarchy",
+      "definition": "Establishing a clear reading order. By altering scale, font weight, positioning, and color, you dictate which visual element is seen first, second, and last."
+    },
+    {
+      "term": "Repetition",
+      "definition": "Utilizing consistent design elements (colors, fonts, shapes, sizes) throughout a composition to tie separate parts together and build unity."
     },
     {
       "term": "Proximity",
-      "definition": "The use of spatial closeness to group related elements and separate unrelated ones."
+      "definition": "Placing elements close together so they are perceived as sharing a relationship, while elements placed far apart are perceived as disconnected."
     },
     {
       "term": "White Space",
-      "definition": "The intentional empty area in a composition that provides rest, separation, and emphasis."
+      "definition": "The empty area surrounding active visual components (also known as Negative Space). It is the breathing room that prevents visual overload and guides focus."
+    },
+    {
+      "term": "Proportion",
+      "definition": "The size relationship between elements (also referred to as Scale). It can be used to emphasize key features, suggest depth, or build visual excitement."
+    },
+    {
+      "term": "Movement",
+      "definition": "Guiding the viewer's path of sight. By using leading lines, curves, gradients, and arrows, you dictate how a student scans your composition."
+    },
+    {
+      "term": "Rhythm",
+      "definition": "Visual tempo. It is built by repeating elements in a pattern with structured intervals, establishing a sense of movement."
+    },
+    {
+      "term": "Unity",
+      "definition": "Measuring how well all design components fit together (also known as Harmony). Visual elements should feel connected and part of a whole, rather than scattered assets."
+    },
+    {
+      "term": "Variety",
+      "definition": "Introducing differences in color, shape, scale, or texture to capture attention and prevent a unified composition from looking monotone or lifeless."
+    },
+    {
+      "term": "Pattern",
+      "definition": "The systematic, repeated replication of design components (motifs). It establishes textures and structural motifs in layouts."
+    },
+    {
+      "term": "Emphasis",
+      "definition": "Making a specific element the focal point. It commands attention by creating high contrast in scale, color, positioning, or shape."
     },
     {
       "term": "Simplicity",
-      "definition": "The practice of reducing a design to its essential elements for maximum clarity and impact."
+      "definition": "Reducing design components to their functional essence. Removing visual noise ensures clean, immediate communication of the core message."
     }
   ],
 
