@@ -115,6 +115,11 @@ window.GDLessons["color-theory"] = {
       ],
       important: "Color is relative. Never choose colors by looking at single swatches on a white background; always evaluate them in combination with adjacent colors, under realistic lighting, and on the target device.",
       tip: "When designing for screens, test your color palettes on multiple displays — a laptop, a budget smartphone, and a tablet. You will quickly see how much color shifting occurs and can adjust your choices to be more resilient.",
+      visual: {
+        type: "simultaneous-contrast",
+        title: "Simultaneous Contrast Sandbox",
+        instructions: "Adjust the background shade slider. Watch the center square (which remains constant gray) appear to change in value due to simultaneous contrast."
+      },
       check: {
         question: "Which cells in the human eye are responsible for color vision in bright conditions?",
         options: [
@@ -153,6 +158,11 @@ window.GDLessons["color-theory"] = {
       ],
       important: "Never send an RGB file directly to a commercial printing press. Unmanaged conversions will cause unpredictable color shifts, muddy tones, and text blurring. Always convert files to CMYK or specify spot colors for print.",
       tip: "Set your design software's color mode to CMYK when starting a print project, and turn on 'Gamut Warning' in Photoshop or Illustrator to immediately highlight which color choices cannot be printed accurately.",
+      visual: {
+        type: "rgb-cmyk-mixer",
+        title: "Additive vs Subtractive Mixer",
+        instructions: "Toggle the color model between RGB Light and CMYK Ink, and adjust the channel sliders. Notice how additive channels merge to create white, while subtractive channels absorb light to create dark mud."
+      },
       check: {
         question: "Why do bright, neon screen colors often look dull when printed in CMYK?",
         options: [
@@ -191,6 +201,11 @@ window.GDLessons["color-theory"] = {
       ],
       important: "The color wheel is a map, not a master. Do not rely on geometric formulas (triads, complements) alone to build palettes; you must manually adjust value and saturation to ensure legibility and structural balance.",
       tip: "When using a color wheel to build a palette, avoid using the hues at their default maximum saturation. Lower the saturation of your base colors to create sophisticated tones, and save high saturation for small, critical accent elements.",
+      visual: {
+        type: "harmony-color-wheel",
+        title: "Harmony Color Wheel",
+        instructions: "Choose a harmony mode (Complementary, Analogous, Triadic) and rotate the base hue slider. The highlighted segments show the mathematical relationships between colors."
+      },
       check: {
         question: "Sir Isaac Newton developed the first circular color organization in 1666. What was the origin of this development?",
         options: [

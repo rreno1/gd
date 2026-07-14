@@ -152,6 +152,11 @@ window.GDLessons["typography"] = {
       ],
       important: "Do not choose a typeface based on a generic description like 'serif means traditional' or 'sans-serif means modern.' Evaluate the specific typeface's curves, weight options, and legibility under your actual project constraints.",
       tip: "When building a typographic system, limit your typeface selection to a single high-quality type family that offers a wide range of weights (light, regular, medium, semibold, bold) and matching italics. This ensures visual harmony and simplifies layout decisions.",
+      visual: {
+        type: "typeface-anatomy",
+        title: "Typeface Class & Anatomy",
+        instructions: "Toggle between Serif and Sans-Serif. Click the red indicators on the letterforms to discover structural anatomy names and functions."
+      },
       check: {
         question: "Which sans-serif style is characterized by proportions and stroke variations derived from classical hand-lettering, making it warm and legible?",
         options: [
@@ -266,6 +271,11 @@ window.GDLessons["typography"] = {
       ],
       important: "Leading is measured baseline-to-baseline, not as the space between lines. When choosing line spacing in digital layouts, always use unitless multipliers (like 1.4 or 1.5) so the line height scales proportionally when you adjust the type size.",
       tip: "Avoid adding tracking to lowercase body copy. Loosening lowercase body text disrupts the natural word shape recognition that readers rely on, slowing down reading speed and making the paragraph feel disconnected.",
+      visual: {
+        type: "typographic-spacing",
+        title: "Typographic Spacing & Rhythm",
+        instructions: "Adjust the line height (leading) and letter spacing (tracking). Observe how changing these proportions shapes the comfort and readability of continuous text."
+      },
       check: {
         question: "Which term describes the vertical distance from one baseline of text to the next?",
         options: [
@@ -304,6 +314,11 @@ window.GDLessons["typography"] = {
       ],
       important: "Never stretch body text across the full width of a desktop monitor. Constrain your text containers to a maximum width (e.g., 600px to 700px, or 60ch to 70ch) to preserve a comfortable, readable measure.",
       tip: "When using flush-left alignment, watch out for awkward line wraps that create deep, distracting gaps in your ragged edge (called 'bad rags') or leave a single short word at the end of a paragraph (called an 'orphan'). Use manual soft breaks (`Shift+Enter`) or non-breaking spaces (`&nbsp;`) to clean up rags in headlines.",
+      visual: {
+        type: "line-length-readability",
+        title: "Line Length & Column Measure",
+        instructions: "Adjust the column width slider. Notice how the approximate characters per line change and verify the optimal readability range."
+      },
       check: {
         question: "Why is flush-left, ragged-right alignment preferred for continuous body text?",
         options: [

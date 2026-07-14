@@ -192,6 +192,11 @@ window.GDLessons["contrast-accessibility"] = {
       ],
       important: "WCAG contrast standards are absolute minimums. A measured value of 4.499:1 fails Level AA. Darken your text or lighten your background until your unrounded contrast calculation is at least 4.50:1.",
       tip: "When designing text over images, add a linear gradient overlay that fades from transparent at the top to 60% black at the bottom, and place your white text at the bottom. This guarantees high contrast even if the background image is bright or busy.",
+      visual: {
+        type: "contrast-ratio-tester",
+        title: "WCAG Contrast Ratio Validator",
+        instructions: "Choose custom foreground and background colors. Observe the calculated contrast ratio and check whether it passes AA and AAA thresholds."
+      },
       check: {
         question: "According to WCAG 2.2 AA guidelines, what is the minimum contrast ratio required for normal-scale text (under 18pt regular/24px) against its background?",
         options: [
@@ -344,6 +349,11 @@ window.GDLessons["contrast-accessibility"] = {
       ],
       important: "Never use 'outline: none;' in your CSS files without immediately replacing it with a custom focus indicator. Removing focus outlines blindfolds keyboard users, making the interface completely inoperable for them.",
       tip: "When styling text links, ensure the focus indicator extends around the entire link block and has a high-contrast border. This makes it easy for keyboard users to track their progress through the page content.",
+      visual: {
+        type: "touch-target-size",
+        title: "Touch Target Size Usability",
+        instructions: "Adjust the target size slider. Observe how the tap area compares to the standard Android 48px guidelines and iOS 44px boundaries."
+      },
       check: {
         question: "What is the minimum pointer target size specified by WCAG 2.2 Level AA guidelines (excluding spacing exceptions)?",
         options: [

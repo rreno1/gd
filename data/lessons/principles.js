@@ -108,6 +108,11 @@ window.GDLessons["principles"] = {
       ],
       "important": "Balance does not mean symmetry. A composition can be perfectly balanced without a single mirrored element — what matters is that visual weight feels evenly distributed across the whole, regardless of how different the individual parts may be.",
       "tip": "Use the squint test: blur your eyes and view your layout as abstract blobs of light and dark. If one area pulls too much attention, redistribute elements until the weight feels even across the composition.",
+      "visual": {
+        "type": "balance-scale",
+        "title": "Asymmetrical Balance Scale",
+        "instructions": "Adjust the scale (size) and position (leverage) of the red object on the right. Achieve equilibrium so the balance beam lies perfectly horizontal."
+      },
       "check": {
         "question": "A poster places a large, bright-yellow circle in the top-left corner and a small, dark-red square in the bottom-right corner. What type of balance does this most likely demonstrate?",
         "options": [
@@ -184,6 +189,11 @@ window.GDLessons["principles"] = {
       ],
       "important": "Hierarchy is not just about making the important thing big — it is about making every element clearly distinct from the elements above and below it in the reading order. The relationships between levels matter as much as the individual levels themselves.",
       "tip": "Limit your designs to three or four hierarchical levels. If you find yourself creating a fifth or sixth level, consider restructuring the content into separate sections instead of adding more typographic tiers.",
+      "visual": {
+        "type": "hierarchy-adjuster",
+        "title": "Typographic Hierarchy Tuner",
+        "instructions": "Adjust the heading scale, subhead contrast, and body spacing. Notice how the reading order becomes clear and reading effort reduces as contrast increases."
+      },
       "check": {
         "question": "A poster features a 72-point bold headline, a 24-point italic subheadline, 11-point body text, and an 8-point footnote. How many levels of typographic hierarchy does this poster have?",
         "options": [
@@ -222,6 +232,11 @@ window.GDLessons["principles"] = {
       ],
       "important": "Proximity is not a suggestion — it is a perceptual law. The Gestalt principle of proximity means viewers will automatically group elements that are close together, whether or not the designer intended it. Always check that your spatial groupings match your content relationships.",
       "tip": "Reduce your alignment axes. If you have more than three different edges or centers that elements align to, your layout will feel scattered. Pick two or three strong axes and snap everything to them.",
+      "visual": {
+        "type": "alignment-guides",
+        "title": "Alignment Guides Sandbox",
+        "instructions": "Toggle the alignment mode from Chaotic to Grid Aligned. See how aligning elements to a shared vertical axis establishes order and makes scanning effortless."
+      },
       "check": {
         "question": "A form label is placed equidistant between two input fields. What usability problem does this create?",
         "options": [

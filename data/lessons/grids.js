@@ -153,6 +153,11 @@ window.GDLessons["grids"] = {
       ],
       important: "Gutters are strictly inactive zones. Never place content inside a gutter track; doing so destroys the column separation and degrades paragraph readability.",
       tip: "Set your grid gutters to match your typography's line height (leading) or a multiple of your base spacing unit. This alignment creates a consistent spatial rhythm between your vertical and horizontal negative spaces.",
+      visual: {
+        type: "grid-builder",
+        title: "Grid Anatomy Builder",
+        instructions: "Adjust the column count, gutter space, and outer margins. Watch the grid structure adjust in real time to see how grid lines organize space."
+      },
       check: {
         question: "What is the term for the horizontal alignment lines that run across columns, coordinating section starts and edges?",
         options: [
@@ -343,6 +348,11 @@ window.GDLessons["grids"] = {
       ],
       important: "Do not treat CSS Grid and Flexbox as competitors. Grid is designed for structural, two-dimensional alignments, while Flexbox is designed for one-dimensional distribution — use them together to build resilient interfaces.",
       tip: "When building a navigation bar or toolbar, use Flexbox. It allows your links and buttons to sit in a single row and adjust their spacing dynamically based on the length of the text labels, preventing wrapping bugs.",
+      visual: {
+        type: "grid-flexbox-flow",
+        title: "CSS Grid vs Flexbox Playground",
+        instructions: "Toggle the layout engine between Flexbox (1D) and CSS Grid (2D). Notice how items adapt to fill space in Flexbox, but snap to columns in Grid."
+      },
       check: {
         question: "Which CSS layout module is a two-dimensional system designed to manage both columns and rows simultaneously?",
         options: [
