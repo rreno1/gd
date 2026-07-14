@@ -125,7 +125,7 @@ window.GDLessons["introduction"] = {
     type: "design-sandbox",
     title: "Build a one-message composition",
     instructions: "Choose a campus announcement and write its audience, required action, and viewing context. Arrange a headline, one supporting detail, and one action using scale, contrast, alignment, and negative space. Create two alternatives, compare their reading order, and explain which communicates more effectively.",
-    legacyPath: "legacy/introduction/introduction.html"
+    legacyPath: "introduction/introduction.html"
   },
   review: [
     { question: "What makes a visual artifact graphic design?", answer: "It intentionally organizes visual and textual material to communicate for an audience, purpose, and context." },

@@ -125,7 +125,7 @@ window.GDLessons["elements-of-design"] = {
     type: "element-lab",
     title: "Element variation laboratory",
     instructions: "Create three versions of the same simple message. In version one, make line the dominant element; in version two, use positive and negative shape; in version three, use value and texture. Keep the words unchanged. Compare how reading order, tone, and depth change, then identify which version best fits the intended audience.",
-    legacyPath: "legacy/elements-of-design/elements-of-design.html"
+    legacyPath: "elements-of-design/elements-of-design.html"
   },
   review: [
     { question: "What qualities can distinguish one line from another?", answer: "Direction, length, weight, edge, continuity, curvature, and rhythm are among the useful qualities." },

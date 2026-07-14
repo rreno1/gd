@@ -19,7 +19,6 @@ ui-debug.log*
 # Generated reports and operating-system files.
 coverage/
 test-results/
-public/legacy/
 .tmp-edge-admin/
 .DS_Store
 Thumbs.db

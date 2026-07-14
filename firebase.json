@@ -1,13 +1,20 @@
 {
   "hosting": {
-    "predeploy": [
-      "npm run build"
-    ],
-    "public": "public",
+    "public": ".",
     "ignore": [
       "firebase.json",
       "**/.*",
-      "**/node_modules/**"
+      "**/node_modules/**",
+      "tests/**",
+      "tools/**",
+      "package.json",
+      "package-lock.json",
+      "README.md",
+      "DEPLOYMENT.md",
+      "docs/**",
+      "GD_Class_Record_2026.xlsx",
+      "firestore.rules",
+      "firestore.indexes.json"
     ],
     "headers": [
       {

@@ -4,21 +4,29 @@ import { fileURLToPath } from 'node:url';
 import vm from 'node:vm';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const publicDir = path.join(root, 'public');
+const publicDir = root;
 const failures = [];
 
 async function listFiles(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
   const nested = await Promise.all(entries.map(entry => {
     const full = path.join(directory, entry.name);
-    return entry.isDirectory() ? listFiles(full) : [full];
+    if (entry.isDirectory()) {
+      const ignoreDirs = ['.git', '.github', 'node_modules', 'tests', 'tools', '.agents', '.tmp-edge-admin', 'introduction', 'elements-of-design', 'principles', 'typography', 'color-theory', 'grids', 'contrast-accessibility'];
+      if (ignoreDirs.includes(entry.name)) {
+        return [];
+      }
+      return listFiles(full);
+    } else {
+      return [full];
+    }
   }));
   return nested.flat();
 }
 
 const files = await listFiles(publicDir);
-const htmlFiles = files.filter(file => file.endsWith('.html') && !file.includes(`${path.sep}legacy${path.sep}`));
-const jsFiles = files.filter(file => file.endsWith('.js') && !file.includes(`${path.sep}legacy${path.sep}`));
+const htmlFiles = files.filter(file => file.endsWith('.html'));
+const jsFiles = files.filter(file => file.endsWith('.js'));
 
 for (const file of htmlFiles) {
   const source = await readFile(file, 'utf8');
@@ -33,7 +41,9 @@ for (const file of htmlFiles) {
     try {
       await access(target);
     } catch {
-      if (!ref.includes('firebase-config.js') && !ref.startsWith('legacy/')) {
+      const legacyFolders = ['introduction', 'elements-of-design', 'principles', 'typography', 'color-theory', 'grids', 'contrast-accessibility'];
+      const isLegacyRef = legacyFolders.some(folder => ref.startsWith(folder + '/'));
+      if (!ref.includes('firebase-config.js') && !isLegacyRef) {
         failures.push(`${path.relative(root, file)} references missing ${ref}`);
       }
     }
@@ -60,3 +70,4 @@ if (failures.length) {
 } else {
   console.log(`Static validation passed: ${htmlFiles.length} pages, ${jsFiles.length} scripts, ${lessonFiles.length} lessons.`);
 }
+

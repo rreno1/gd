@@ -23,7 +23,7 @@ test('Firestore quiz answer keys stay synchronized with all lesson datasets', as
   for (const moduleId of moduleIds) {
     const context = { window: { GDLessons: {} } };
     vm.runInNewContext(
-      await readFile(path.join(root, 'public', 'data', 'lessons', `${moduleId}.js`), 'utf8'),
+      await readFile(path.join(root, 'data', 'lessons', `${moduleId}.js`), 'utf8'),
       context,
     );
     const answers = context.window.GDLessons[moduleId].quiz.map(question => question.answer).join(',');
@@ -32,7 +32,8 @@ test('Firestore quiz answer keys stay synchronized with all lesson datasets', as
 });
 
 test('Firebase web configuration contains placeholders and no private key', async () => {
-  const config = await readFile(path.join(root, 'public', 'js', 'firebase-config.js'), 'utf8');
+  const config = await readFile(path.join(root, 'js', 'firebase-config.js'), 'utf8');
   assert.doesNotMatch(config, /PRIVATE KEY|private_key|service_account/);
   assert.match(config, /window\.GD_FIREBASE_CONFIG/);
 });
+

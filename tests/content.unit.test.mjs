@@ -17,12 +17,17 @@ async function filesBelow(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
   return (await Promise.all(entries.map(entry => {
     const full = path.join(directory, entry.name);
-    return entry.isDirectory() ? filesBelow(full) : [full];
+    if (entry.isDirectory()) {
+      const ignoreDirs = ['.git', '.github', 'node_modules', 'tests', 'tools', '.agents', '.tmp-edge-admin', 'introduction', 'elements-of-design', 'principles', 'typography', 'color-theory', 'grids', 'contrast-accessibility'];
+      if (ignoreDirs.includes(entry.name)) return [];
+      return filesBelow(full);
+    }
+    return [full];
   }))).flat();
 }
 
 test('course catalogue defines the seven expected modules in order', async () => {
-  const window = await loadBrowserScript(path.join(root, 'public', 'data', 'course.js'));
+  const window = await loadBrowserScript(path.join(root, 'data', 'course.js'));
   assert.deepEqual(Array.from(window.GD.course.modules, module => module.id), moduleIds);
   assert.equal(new Set(window.GD.course.modules.map(module => module.id)).size, 7);
 });
@@ -30,7 +35,7 @@ test('course catalogue defines the seven expected modules in order', async () =>
 for (const moduleId of moduleIds) {
   test(`${moduleId} dataset satisfies the shared lesson contract`, async () => {
     const context = { window: { GDLessons: {} } };
-    const window = await loadBrowserScript(path.join(root, 'public', 'data', 'lessons', `${moduleId}.js`), context);
+    const window = await loadBrowserScript(path.join(root, 'data', 'lessons', `${moduleId}.js`), context);
     const lesson = window.GDLessons[moduleId];
     assert.ok(lesson, 'dataset must register itself');
     assert.equal(lesson.id, moduleId);
@@ -46,7 +51,7 @@ for (const moduleId of moduleIds) {
       assert.ok(section.keyPoints.length >= 2);
     }
     assert.ok(lesson.activity.type && lesson.activity.legacyPath);
-    await access(path.join(root, lesson.activity.legacyPath.replace(/^legacy[\\/]/, 'gd-presentations/')));
+    await access(path.join(root, lesson.activity.legacyPath));
     assert.ok(lesson.review.length >= 5);
     assert.equal(lesson.quiz.length, 15);
     for (const question of lesson.quiz) {
@@ -60,10 +65,11 @@ for (const moduleId of moduleIds) {
 }
 
 test('public text sources contain no common mojibake markers', async () => {
-  const targets = (await filesBelow(path.join(root, 'public')))
-    .filter(file => /\.(?:html|css|js)$/.test(file) && !file.includes(`${path.sep}legacy${path.sep}`));
+  const targets = (await filesBelow(root))
+    .filter(file => /\.(?:html|css|js)$/.test(file));
   for (const file of targets) {
     const source = await readFile(file, 'utf8');
     assert.doesNotMatch(source, /â€|Ã.|ðŸ|Â©/, path.relative(root, file));
   }
 });
+

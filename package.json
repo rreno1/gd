@@ -5,7 +5,7 @@
   "description": "Static Firebase-backed Graphic Design learning portal",
   "type": "module",
   "scripts": {
-    "build": "node tools/sync-legacy.mjs && node tools/validate-static.mjs",
+    "build": "node tools/validate-static.mjs",
     "serve": "node tools/serve.mjs",
     "test": "node tests/all.unit.test.mjs",
     "test:rules": "firebase emulators:exec --only firestore \"node tests/firestore.rules.test.mjs\"",

@@ -127,7 +127,7 @@ window.GDLessons["color-theory"] = {
     type: "color-lab",
     title: "Build and stress-test a role-based palette",
     instructions: "Choose a base hue and create a five-color palette with named roles for background, surface, text, primary action, and status. Compare at least two harmony structures, adjust saturation and lightness, then test the palette in grayscale and with the lab's approximate color-vision views. Add a non-color cue to every status and explain how audience, medium, and context shaped your final choices.",
-    legacyPath: "legacy/color-theory/color-theory.html"
+    legacyPath: "color-theory/color-theory.html"
   },
   review: [
     { question: "How do RGB and CMYK differ?", answer: "RGB adds emitted red, green, and blue light for screen-oriented color, while CMYK uses subtractive inks to reproduce color in print." },

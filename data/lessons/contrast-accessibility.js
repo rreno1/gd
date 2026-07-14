@@ -127,7 +127,7 @@ window.GDLessons["contrast-accessibility"] = {
     type: "contrast-lab",
     title: "Audit an accessible interface state set",
     instructions: "Choose text and background colors, then record the unrounded contrast ratio and classify the pair for WCAG 2.2 AA normal text, AA large-scale text, and AAA normal text. Build default, hover, focus, error, success, and disabled states; give every essential status a non-color cue and mark the lab's color-vision views as approximate. Finally, compare a 24 by 24 CSS pixel WCAG AA target check with separate 44 by 44 point Apple platform guidance, and document which rule you are evaluating.",
-    legacyPath: "legacy/contrast-accessibility/contrast-accessibility.html"
+    legacyPath: "contrast-accessibility/contrast-accessibility.html"
   },
   review: [
     { question: "What are the four WCAG principles?", answer: "Perceivable, operable, understandable, and robust." },
