@@ -19,6 +19,33 @@
   `;
   document.head.appendChild(style);
 
+  let loader = null;
+  let isHidden = false;
+  let fallbackTimeout = null;
+
+  // Expose control API globally immediately to prevent race conditions from early-running page scripts
+  const GD = window.GD = window.GD || {};
+  GD.showLoader = () => {
+    isHidden = false;
+    if (fallbackTimeout) {
+      clearTimeout(fallbackTimeout);
+      fallbackTimeout = null;
+    }
+    if (loader) {
+      loader.classList.remove('fade-out');
+    }
+  };
+  GD.hideLoader = () => {
+    isHidden = true;
+    if (fallbackTimeout) {
+      clearTimeout(fallbackTimeout);
+      fallbackTimeout = null;
+    }
+    if (loader) {
+      loader.classList.add('fade-out');
+    }
+  };
+
   function syncButtons() {
     document.querySelectorAll('[data-theme-toggle]').forEach(button => {
       const light = root.dataset.theme === 'light';
@@ -45,30 +72,25 @@
     });
 
     // Create and prepend loader element
-    const loader = document.createElement('div');
+    loader = document.createElement('div');
     loader.id = 'pageLoader';
     loader.className = 'page-loader';
+    if (isHidden) {
+      loader.classList.add('fade-out');
+    }
     const spinner = document.createElement('div');
     spinner.className = 'spinner';
     loader.append(spinner);
     document.body.prepend(loader);
     document.body.classList.add('loader-ready');
 
-    // Safety fallback: auto-hide after 5.0 seconds in case page loading script fails or crashes
-    const fallbackTimeout = setTimeout(() => {
-      loader.classList.add('fade-out');
-    }, 5000);
-
-    // Expose control API globally on window.GD
-    const GD = window.GD = window.GD || {};
-    GD.showLoader = () => {
-      clearTimeout(fallbackTimeout);
-      loader.classList.remove('fade-out');
-    };
-    GD.hideLoader = () => {
-      clearTimeout(fallbackTimeout);
-      loader.classList.add('fade-out');
-    };
+    // Safety fallback: auto-hide after 20.0 seconds in case page loading script fails or crashes
+    if (!isHidden) {
+      fallbackTimeout = setTimeout(() => {
+        loader.classList.add('fade-out');
+        fallbackTimeout = null;
+      }, 20000);
+    }
 
     // Intercept clicks on links for smooth page-out transition
     document.addEventListener('click', event => {
@@ -88,7 +110,7 @@
       }
 
       event.preventDefault();
-      loader.classList.remove('fade-out');
+      GD.showLoader();
       setTimeout(() => {
         location.href = href;
       }, 220);
@@ -98,8 +120,7 @@
   // 3. Handle page cache restoring (e.g. back button navigation)
   window.addEventListener('pageshow', event => {
     if (event.persisted) {
-      const loader = document.getElementById('pageLoader');
-      if (loader) loader.classList.add('fade-out');
+      GD.hideLoader();
     }
   });
 })();
