@@ -8,5 +8,5 @@ window.GD_FIREBASE_CONFIG = {
   storageBucket: "gd-learning-portal-73655.firebasestorage.app",
   messagingSenderId: "890921190550",
   appId: "1:890921190550:web:3d9b8bd25a5ea601252eb7",
-  measurementId: "G-R09Y1WZ0V5"
+  measurementId: "G-R09Y1WZ0V5",
 };
