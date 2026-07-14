@@ -83,7 +83,7 @@
 
   window.GD = window.GD || {};
   window.GD.course = {
-    code: 'GD 101',
+    code: 'FREE ELEC 101 - Graphic Design',
     title: 'Graphic Design Foundations',
     institution: 'MLG College of Learning',
     academicYear: '2026',
