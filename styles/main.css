@@ -50,7 +50,7 @@ h3 { letter-spacing: -.025em; }
 .hero-poster:hover { transform: rotate(0deg) scale(1.03); box-shadow: 0 30px 60px rgba(0,0,0,0.3); }
 .poster-top, .poster-bottom { position: relative; z-index: 2; display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: .62rem; font-weight: 900; letter-spacing: .08em; }
 .poster-bottom { position: absolute; right: 1.45rem; bottom: 1.45rem; left: 1.45rem; }
-.hero-poster > strong { position: absolute; z-index: 2; right: 1.5rem; bottom: 5rem; left: 1.5rem; font-size: clamp(3.2rem, 6vw, 5.3rem); line-height: .82; letter-spacing: -.09em; text-transform: uppercase; color: #ff9d5c; transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+.hero-poster > strong { position: absolute; z-index: 2; right: 1.5rem; bottom: 5rem; left: 1.5rem; font-size: clamp(3.2rem, 6vw, 5.3rem); line-height: .82; letter-spacing: -.09em; text-transform: uppercase; color: #ff9d5c; text-shadow: 2px 2px 0px #141b1f; transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
 .hero-poster:hover > strong { transform: translate(-3px, -2px); }
 .poster-shape { position: absolute; border-radius: 50%; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
 .shape-one { top: 11%; right: -13%; width: 86%; aspect-ratio: 1; border: 55px solid #141b1f; }
