@@ -478,6 +478,7 @@
       renderLoadError(error);
     } finally {
       byId('adminMain')?.removeAttribute('aria-busy');
+      window.GD?.hideLoader?.();
     }
   }
 
@@ -1125,6 +1126,7 @@
           'Connect this site to Firebase before using the instructor dashboard. A local, read-only-style demonstration is available only with ?preview=admin.',
           'Setup required',
         );
+        window.GD?.hideLoader?.();
         return;
       }
       state.preview = true;
@@ -1139,6 +1141,7 @@
           'This dashboard is available only when the signed-in Firebase ID token has the admin custom claim.',
           'Access denied',
         );
+        window.GD?.hideLoader?.();
         return;
       }
       state.auth = authDetail;
@@ -1160,5 +1163,6 @@
       error?.message || 'The dashboard could not be initialized.',
       'Error',
     );
+    window.GD?.hideLoader?.();
   });
 })();

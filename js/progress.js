@@ -211,10 +211,12 @@
     if (run !== renderSequence) return;
     if (!state.user) {
       showState('signedOut');
+      window.GD?.hideLoader?.();
       return;
     }
     if (!state.isAdmin && !state.profile?.approved) {
       showState('approval');
+      window.GD?.hideLoader?.();
       return;
     }
     showState('loading');
@@ -232,6 +234,7 @@
       renderActivities(modulesById, progress, quizzes, services);
       renderResults(modules, quizzes, services);
       showState('content');
+      window.GD?.hideLoader?.();
     } catch (error) {
       console.error('Progress dashboard could not be loaded.', error);
       const panel = document.getElementById('progressLoading');
@@ -244,6 +247,7 @@
         panel.setAttribute('role', 'alert');
       }
       showState('loading');
+      window.GD?.hideLoader?.();
     }
   }
 

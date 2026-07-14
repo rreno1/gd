@@ -83,7 +83,8 @@
 
     const header = node('div', 'module-card-header');
     header.append(node('span', 'module-number', `Module ${String(module.number).padStart(2, '0')}`));
-    const icon = node('span', 'module-icon', module.icon);
+    const icon = node('span', 'module-icon');
+    icon.innerHTML = module.icon;
     icon.setAttribute('aria-hidden', 'true');
     header.append(icon);
 
@@ -147,6 +148,7 @@
     });
     grid.replaceChildren(fragment);
     updateAccessNote(state, services);
+    window.GD?.hideLoader?.();
   }
 
   render().catch(error => {
@@ -157,6 +159,7 @@
       message.setAttribute('role', 'alert');
       grid.replaceChildren(message);
     }
+    window.GD?.hideLoader?.();
   });
   window.addEventListener('gd:auth-ready', () => {
     render().catch(error => console.error('The course catalogue could not be refreshed.', error));

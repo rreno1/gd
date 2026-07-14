@@ -9,7 +9,8 @@
 .nav-link:hover, .nav-link.active { color: var(--text); }
 .nav-link.active::after { transform: scaleX(1); }
 .nav-actions { display: flex; align-items: center; gap: .65rem; margin-left: auto; }
-.theme-toggle { min-width: 46px; min-height: 42px; padding: .5rem .7rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--muted); font-size: .68rem; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; }
+.theme-toggle { display: inline-flex; align-items: center; justify-content: center; min-width: 42px; min-height: 42px; width: 42px; height: 42px; padding: 0; border: 1px solid var(--line); border-radius: 50%; background: var(--surface); color: var(--muted); cursor: pointer; transition: color .15s ease, border-color .15s ease; }
+.theme-toggle:hover { color: var(--text); border-color: var(--accent); }
 .button { display: inline-flex; min-height: 46px; align-items: center; justify-content: center; gap: .55rem; padding: .75rem 1.15rem; border: 1px solid transparent; border-radius: 999px; font-size: .86rem; font-weight: 800; line-height: 1.15; text-align: center; text-decoration: none; cursor: pointer; transition: transform .15s ease, background .15s ease, border-color .15s ease; }
 .button:hover:not(:disabled) { transform: translateY(-2px); }
 .button:disabled { opacity: .5; cursor: not-allowed; }

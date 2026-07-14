@@ -24,7 +24,12 @@
       const light = root.dataset.theme === 'light';
       button.setAttribute('aria-label', light ? 'Use dark theme' : 'Use light theme');
       button.setAttribute('title', light ? 'Use dark theme' : 'Use light theme');
-      button.querySelector('[data-theme-icon]')?.replaceChildren(document.createTextNode(light ? 'Moon' : 'Sun'));
+      const container = button.querySelector('[data-theme-icon]');
+      if (container) {
+        container.innerHTML = light
+          ? '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>'
+          : '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: block;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
+      }
     });
   }
 
@@ -49,10 +54,21 @@
     document.body.prepend(loader);
     document.body.classList.add('loader-ready');
 
-    // Smoothly fade out loader
-    setTimeout(() => {
+    // Safety fallback: auto-hide after 5.0 seconds in case page loading script fails or crashes
+    const fallbackTimeout = setTimeout(() => {
       loader.classList.add('fade-out');
-    }, 100);
+    }, 5000);
+
+    // Expose control API globally on window.GD
+    const GD = window.GD = window.GD || {};
+    GD.showLoader = () => {
+      clearTimeout(fallbackTimeout);
+      loader.classList.remove('fade-out');
+    };
+    GD.hideLoader = () => {
+      clearTimeout(fallbackTimeout);
+      loader.classList.add('fade-out');
+    };
 
     // Intercept clicks on links for smooth page-out transition
     document.addEventListener('click', event => {

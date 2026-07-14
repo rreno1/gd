@@ -69,6 +69,7 @@
     const copy = dom.error.querySelector('p');
     if (heading) heading.textContent = title;
     if (copy) copy.textContent = reason;
+    window.GD?.hideLoader?.();
   }
 
   function buildSteps(lesson) {
@@ -348,6 +349,7 @@
       dom.navTitle.textContent = state.lesson.title; dom.outlineTitle.textContent = state.lesson.title;
       dom.loading.hidden = true; dom.layout.hidden = false;
       renderStep();
+      window.GD?.hideLoader?.();
       dom.previous.addEventListener('click', () => goTo(state.index - 1)); dom.next.addEventListener('click', () => goTo(state.index + 1));
       dom.outlineToggle.addEventListener('click', openOutline); dom.outlineClose.addEventListener('click', () => closeOutline(true)); dom.outlineOverlay.addEventListener('click', () => closeOutline(true));
       document.addEventListener('keydown', event => {
