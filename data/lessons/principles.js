@@ -377,29 +377,47 @@ window.GDLessons["principles"] = {
   ],
   "misconceptions": [
     {
-      "myth": "Good design means making everything symmetrical and evenly spaced.",
-      "reality": "Symmetry is one type of balance, but asymmetrical balance, deliberate contrast, and strategic use of white space often produce more dynamic, engaging, and effective compositions. Good design means using the right type of balance for the message."
+      "claim": "Good design means making everything symmetrical and evenly spaced.",
+      "correction": "Symmetry is one type of balance, but asymmetrical balance, deliberate contrast, and strategic use of white space often produce more dynamic, engaging, and effective compositions. Good design means using the right type of balance for the message."
     },
     {
-      "myth": "White space is wasted space that should be filled with content.",
-      "reality": "White space is an active design element that provides breathing room, separates content groups, emphasizes key elements, and improves readability. Cramming every available pixel with content overwhelms the viewer and reduces comprehension."
+      "claim": "White space is wasted space that should be filled with content.",
+      "correction": "White space is an active design element that provides breathing room, separates content groups, emphasizes key elements, and improves readability. Cramming every available pixel with content overwhelms the viewer and reduces comprehension."
     },
     {
-      "myth": "Following the principles of design limits creativity.",
-      "reality": "The principles are not rules to obey blindly — they are relationships to understand and leverage. Knowing how balance, contrast, and hierarchy work gives designers the vocabulary to break conventions purposefully and expressively, rather than accidentally."
+      "claim": "Following the principles of design limits creativity.",
+      "correction": "The principles are not rules to obey blindly — they are relationships to understand and leverage. Knowing how balance, contrast, and hierarchy work gives designers the vocabulary to break conventions purposefully and expressively, rather than accidentally."
     },
     {
-      "myth": "If the content is good enough, the design principles do not matter.",
-      "reality": "Even excellent content can fail to communicate if it is poorly organized. Principles like hierarchy, alignment, and proximity determine whether the viewer can find, read, and understand the content. Design principles are the delivery system for meaning."
+      "claim": "If the content is good enough, the design principles do not matter.",
+      "correction": "Even excellent content can fail to communicate if it is poorly organized. Principles like hierarchy, alignment, and proximity determine whether the viewer can find, read, and understand the content. Design principles are the delivery system for meaning."
     }
   ],
   "review": [
-    "Describe the difference between symmetrical and asymmetrical balance and explain a scenario where each would be the better choice for a design project.",
-    "Choose a website or app you use daily and identify three examples of contrast that create visual hierarchy. Explain what types of contrast are used in each case.",
-    "Explain how proximity and alignment work together to organize content on a business card or contact page without using borders or dividing lines.",
-    "Find an example of repetition in a brand's visual identity (across their website, packaging, and social media) and explain how that repetition creates recognition and trust.",
-    "Sketch a simple poster layout that uses the Z-pattern to guide the viewer's eye from a headline to a supporting image to a call-to-action button.",
-    "Take a design you have created and evaluate its unity-variety balance. Identify which elements provide unity and which provide variety, and suggest one change that would improve the balance."
+    {
+      "question": "Describe the difference between symmetrical and asymmetrical balance and explain a scenario where each would be the better choice for a design project.",
+      "answer": "Symmetrical balance mirrors elements across a center axis, creating a formal, stable, and authoritative tone (ideal for certificates or luxury branding). Asymmetrical balance uses unequal weights to create a dynamic, modern feel (ideal for editorial spreads or websites)."
+    },
+    {
+      "question": "Choose a website or app you use daily and identify three examples of contrast that create visual hierarchy. Explain what types of contrast are used in each case.",
+      "answer": "Common examples are: size contrast (large headlines vs small body text), color value contrast (bright primary action buttons on quiet backgrounds), and weight contrast (bold labels vs regular text)."
+    },
+    {
+      "question": "Explain how proximity and alignment work together to organize content on a business card or contact page without using borders or dividing lines.",
+      "answer": "Proximity clusters related details (like grouping telephone, email, and address together) so they read as a block. Alignment snaps these blocks to a shared vertical axis (like left-aligned), giving the layout an invisible, clean structure."
+    },
+    {
+      "question": "Find an example of repetition in a brand's visual identity (across their website, packaging, and social media) and explain how that repetition creates recognition and trust.",
+      "answer": "Consistent repetition of a brand mark, color scheme, and typography across platforms creates a cohesive system. This recurring consistency makes the brand instantly recognizable and reinforces reliability and professionalism."
+    },
+    {
+      "question": "Sketch a simple poster layout that uses the Z-pattern to guide the viewer's eye from a headline to a supporting image to a call-to-action button.",
+      "answer": "The Z-pattern tracks from top-left (headline) to top-right, down diagonally to bottom-left (supporting graphic), and finally horizontally to bottom-right (button), mapping natural reading gravity."
+    },
+    {
+      "question": "Take a design you have created and evaluate its unity-variety balance. Identify which elements provide unity and which provide variety, and suggest one change that would improve the balance.",
+      "answer": "Unity is established by consistent grid structures and typefaces. Variety is introduced through contrasting image scales, accent colors, and asymmetric overlaps. Adjusting these elements helps tune the balance between coherence and interest."
+    }
   ],
   "quiz": [
     {

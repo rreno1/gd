@@ -72,10 +72,35 @@
 
     document.addEventListener('keydown', event => {
       const isCmdOrCtrl = event.metaKey || event.ctrlKey;
+      const isShift = event.shiftKey;
+
+      // Block Copy, Paste, Cut
       if (isCmdOrCtrl && (event.key === 'c' || event.key === 'C' || event.key === 'v' || event.key === 'V' || event.key === 'x' || event.key === 'X')) {
         event.preventDefault();
+        return;
       }
-      if (event.key === 'PrintScreen') {
+      // Block Print (Ctrl+P)
+      if (isCmdOrCtrl && (event.key === 'p' || event.key === 'P')) {
+        event.preventDefault();
+        return;
+      }
+      // Block Save (Ctrl+S)
+      if (isCmdOrCtrl && (event.key === 's' || event.key === 'S')) {
+        event.preventDefault();
+        return;
+      }
+      // Block View Source (Ctrl+U)
+      if (isCmdOrCtrl && (event.key === 'u' || event.key === 'U')) {
+        event.preventDefault();
+        return;
+      }
+      // Block DevTools (F12 or Ctrl+Shift+I / J / C)
+      if (event.key === 'F12' || (isCmdOrCtrl && isShift && (event.key === 'i' || event.key === 'I' || event.key === 'j' || event.key === 'J' || event.key === 'c' || event.key === 'C'))) {
+        event.preventDefault();
+        return;
+      }
+      // Block PrintScreen
+      if (event.key === 'PrintScreen' || event.keyCode === 44) {
         event.preventDefault();
         document.body.classList.add('blurred-screenshot');
         navigator.clipboard?.writeText?.('');
@@ -83,7 +108,7 @@
     });
 
     document.addEventListener('keyup', event => {
-      if (event.key === 'PrintScreen') {
+      if (event.key === 'PrintScreen' || event.keyCode === 44) {
         setTimeout(() => {
           document.body.classList.remove('blurred-screenshot');
         }, 1000);
@@ -92,6 +117,7 @@
 
     window.addEventListener('blur', () => {
       document.body.classList.add('blurred-screenshot');
+      try { navigator.clipboard?.writeText?.(''); } catch(e) {}
     });
     window.addEventListener('focus', () => {
       document.body.classList.remove('blurred-screenshot');
@@ -99,6 +125,7 @@
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) {
         document.body.classList.add('blurred-screenshot');
+        try { navigator.clipboard?.writeText?.(''); } catch(e) {}
       } else {
         document.body.classList.remove('blurred-screenshot');
       }

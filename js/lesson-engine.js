@@ -249,11 +249,25 @@
     wrap.append(headerBlock('Check your understanding', 'Review & misconceptions', 'Open each prompt, explain it in your own words, then compare your reasoning with the answer.'));
     const subheading = node('h2', 'review-heading', 'Common misconceptions'); wrap.append(subheading);
     const myths = node('div', 'misconception-list');
-    state.lesson.misconceptions.forEach(item => { const card = node('article'); card.append(node('p', 'myth', item.claim), node('p', 'correction', item.correction)); myths.append(card); });
+    state.lesson.misconceptions.forEach(item => {
+      const card = node('article');
+      card.append(
+        node('p', 'myth', item.claim || item.myth || ''),
+        node('p', 'correction', item.correction || item.reality || '')
+      );
+      myths.append(card);
+    });
     wrap.append(myths, node('h2', 'review-heading', 'Review prompts'));
     const review = node('div', 'review-list');
     state.lesson.review.forEach((item, index) => {
-      const details = document.createElement('details'); const summary = document.createElement('summary'); summary.textContent = `${index + 1}. ${item.question}`; details.append(summary, node('p', '', item.answer)); review.append(details);
+      const details = document.createElement('details');
+      const summary = document.createElement('summary');
+      const isObj = typeof item === 'object' && item !== null;
+      const questionText = isObj ? item.question : item;
+      const answerText = isObj ? item.answer : "Reflect on this prompt based on your readings. Think about how this concept applies to your design decisions, visual consistency, and user communication hierarchy.";
+      summary.textContent = `${index + 1}. ${questionText}`;
+      details.append(summary, node('p', '', answerText));
+      review.append(details);
     });
     wrap.append(review); return wrap;
   }

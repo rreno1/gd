@@ -376,29 +376,47 @@ window.GDLessons["introduction"] = {
   ],
   "misconceptions": [
     {
-      "myth": "Graphic design is mainly about making things look pretty.",
-      "reality": "Graphic design is primarily about solving communication problems. Aesthetics serve the message—visual choices are strategic decisions that support clarity, hierarchy, audience engagement, and the achievement of specific objectives. A beautiful design that fails to communicate is a failed design."
+      "claim": "Graphic design is mainly about making things look pretty.",
+      "correction": "Graphic design is primarily about solving communication problems. Aesthetics serve the message—visual choices are strategic decisions that support clarity, hierarchy, audience engagement, and the achievement of specific objectives. A beautiful design that fails to communicate is a failed design."
     },
     {
-      "myth": "You need expensive professional software to do real design work.",
-      "reality": "While industry-standard tools like Adobe Creative Suite are powerful, excellent design work can be produced with free and affordable alternatives like Figma (free tier), Canva, GIMP, Inkscape, and even pen and paper. The designer's thinking—understanding audience, purpose, hierarchy, and composition—matters far more than the specific software used."
+      "claim": "You need expensive professional software to do real design work.",
+      "correction": "While industry-standard tools like Adobe Creative Suite are powerful, excellent design work can be produced with free and affordable alternatives like Figma (free tier), Canva, GIMP, Inkscape, and even pen and paper. The designer's thinking—understanding audience, purpose, hierarchy, and composition—matters far more than the specific software used."
     },
     {
-      "myth": "Design talent is innate—you either have a creative eye or you don't.",
-      "reality": "Design is a learnable discipline built on principles, practice, critique, and iteration. Like writing, music, or athletics, design skill improves with study and deliberate practice. Visual literacy, compositional judgment, and problem-solving ability all develop over time through education, feedback, and real-world experience."
+      "claim": "Design talent is innate—you either have a creative eye or you don't.",
+      "correction": "Design is a learnable discipline built on principles, practice, critique, and iteration. Like writing, music, or athletics, design skill improves with study and deliberate practice. Visual literacy, compositional judgment, and problem-solving ability all develop over time through education, feedback, and real-world experience."
     },
     {
-      "myth": "More visual elements make a design more impactful and impressive.",
-      "reality": "Effective design often requires restraint. Adding more elements—more fonts, more colors, more images, more decorative effects—typically creates visual clutter that competes for attention and obscures the primary message. Skilled designers achieve impact through strategic use of contrast, hierarchy, and negative space, not by filling every available area."
+      "claim": "More visual elements make a design more impactful and impressive.",
+      "correction": "Effective design often requires restraint. Adding more elements—more fonts, more colors, more images, more decorative effects—typically creates visual clutter that competes for attention and obscures the primary message. Skilled designers achieve impact through strategic use of contrast, hierarchy, and negative space, not by filling every available area."
     }
   ],
   "review": [
-    "How would you explain the difference between art and graphic design to a classmate who thinks they are the same thing?",
-    "Choose a poster or advertisement you encountered today and identify three specific visual hierarchy techniques it uses to guide your eye through the information.",
-    "Why is defining the target audience an essential first step before making any visual design decisions?",
-    "Describe the role of negative space in a well-known logo or layout and explain how removing that space would change the design's effectiveness.",
-    "Outline the six phases of a professional design workflow and explain why skipping the ideation phase often leads to weaker results.",
-    "Give an example of a design ethics issue—such as a dark pattern, an accessibility failure, or cultural insensitivity—and explain what the designer should have done differently."
+    {
+      "question": "How would you explain the difference between art and graphic design to a classmate who thinks they are the same thing?",
+      "answer": "Art is typically centered on the artist's personal expression and subjective interpretation. Graphic design is communication with a specific purpose, designed for a target audience, and subject to external constraints and goals defined in a brief."
+    },
+    {
+      "question": "Choose a poster or advertisement you encountered today and identify three specific visual hierarchy techniques it uses to guide your eye through the information.",
+      "answer": "Key techniques include size contrast (large titles), color weight (accent hues on key info), and spatial positioning (placing critical elements at the top or along natural scanning paths)."
+    },
+    {
+      "question": "Why is defining the target audience an essential first step before making any visual design decisions?",
+      "answer": "The target audience determines the appropriate visual language, typographic style, color associations, and technical delivery. Without defining them first, design choices are arbitrary and risk failing to communicate the message."
+    },
+    {
+      "question": "Describe the role of negative space in a well-known logo or layout and explain how removing that space would change the design's effectiveness.",
+      "answer": "Negative space provides breathing room, groups elements through proximity, and establishes focal points. Removing it creates visual clutter, slows scanning speed, and causes content elements to bleed together confusingly."
+    },
+    {
+      "question": "Outline the six phases of a professional design workflow and explain why skipping the ideation phase often leads to weaker results.",
+      "answer": "The phases are: Brief, Research, Ideation, Execution, Feedback, and Delivery. Skipping ideation leads to premature commitment to the first, most obvious idea, resulting in less creative and less effective communication."
+    },
+    {
+      "question": "Give an example of a design ethics issue—such as a dark pattern, an accessibility failure, or cultural insensitivity—and explain what the designer should have done differently.",
+      "answer": "Examples include using low-contrast text that locks out visually impaired readers (accessibility failure), or using deceptive hidden checkbox defaults (dark patterns). Designers must design inclusively and transparently."
+    }
   ],
   "quiz": [
     {

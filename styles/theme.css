@@ -108,3 +108,9 @@ body.blurred-screenshot {
   pointer-events: none !important;
   transition: filter 0.15s ease;
 }
+
+@media print {
+  body {
+    display: none !important;
+  }
+}
