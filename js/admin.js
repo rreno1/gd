@@ -577,7 +577,13 @@
     const cards = state.modules.map(module => {
       const card = make('article', 'module-control');
       card.style.setProperty('--module-accent', module.accent || 'var(--accent)');
-      card.append(make('span', '', module.icon || String(module.order).padStart(2, '0')));
+      const iconSpan = make('span');
+      if (module.icon && module.icon.startsWith('<svg')) {
+        iconSpan.innerHTML = module.icon;
+      } else {
+        iconSpan.textContent = module.icon || String(module.order).padStart(2, '0');
+      }
+      card.append(iconSpan);
       const content = make('div');
       content.append(make('h2', '', module.title));
       const status = make('p', '', module.open ? 'Open' : 'Closed');

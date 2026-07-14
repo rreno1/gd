@@ -117,7 +117,13 @@
     });
     copy.append(meta);
     const art = node('div', 'lesson-cover-art'); art.setAttribute('aria-hidden', 'true');
-    art.append(node('span', '', state.module.icon), node('strong', '', String(state.module.number).padStart(2, '0')));
+    const iconSpan = node('span');
+    if (state.module.icon && state.module.icon.startsWith('<svg')) {
+      iconSpan.innerHTML = state.module.icon;
+    } else {
+      iconSpan.textContent = state.module.icon;
+    }
+    art.append(iconSpan, node('strong', '', String(state.module.number).padStart(2, '0')));
     wrap.append(copy, art);
     return wrap;
   }
