@@ -112,7 +112,8 @@
       if (user) {
         try {
           const token = await services.getTokenResult(user);
-          isAdmin = token?.claims?.admin === true;
+          const adminEmails = window.GD_ADMIN_EMAILS || [];
+          isAdmin = token?.claims?.admin === true || adminEmails.includes(user.email);
           profile = await services.ensureProfile(user);
           // Attendance is a create-once record. A failure should not hide a
           // successfully authenticated account or its approval state.

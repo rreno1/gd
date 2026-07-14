@@ -9,3 +9,4 @@ window.GD_FIREBASE_CONFIG = {
   messagingSenderId: "890921190550",
   appId: "1:890921190550:web:3d9b8bd25a5ea601252eb7"
 };
+window.GD_ADMIN_EMAILS = ['rrjrenomeron@mlgcl.edu.ph', 'rrenomeronjr@gmail.com'];
