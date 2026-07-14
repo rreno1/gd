@@ -461,10 +461,10 @@
         return snapshot.docs.map(item => ({ uid: item.ref.parent.parent.id, id: item.id, ...item.data() }));
       },
       async listAllAttendance(date) {
-        let reference = dbApi.collectionGroup(db, 'attendance');
-        if (date) reference = dbApi.query(reference, dbApi.where('date', '==', date));
+        const reference = dbApi.collectionGroup(db, 'attendance');
         const snapshot = await dbApi.getDocs(reference);
-        return snapshot.docs.map(item => ({ uid: item.ref.parent.parent.id, id: item.id, ...item.data() }));
+        const records = snapshot.docs.map(item => ({ uid: item.ref.parent.parent.id, id: item.id, ...item.data() }));
+        return date ? records.filter(item => item.date === date) : records;
       },
       async saveModule(module) {
         const currentUser = auth.currentUser;
