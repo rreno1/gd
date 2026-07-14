@@ -199,11 +199,14 @@
       fieldset.append(options); form.append(fieldset);
     });
     const submitRow = node('div', 'quiz-submit'); const submit = button('Submit assessment', 'button primary'); submit.type = 'submit'; submitRow.append(node('p', '', 'Your first submission is final unless an instructor resets it.'), submit); form.append(submitRow);
+    let submitting = false;
     form.addEventListener('submit', async event => {
       event.preventDefault();
+      if (submitting) return;
       const data = new FormData(form);
       const answers = state.lesson.quiz.map((_, index) => Number(data.get(`question-${index}`)));
       if (answers.some(Number.isNaN)) { window.GD.toast('Answer every question before submitting.', 'error'); return; }
+      submitting = true;
       submit.disabled = true; submit.textContent = 'Saving…';
       const score = answers.reduce((total, answer, index) => total + (answer === state.lesson.quiz[index].answer ? 1 : 0), 0);
       const result = { score, total: state.lesson.quiz.length, percentage: Math.round(score / state.lesson.quiz.length * 100), answers, submittedAt: new Date().toISOString(), attempts: 1 };
@@ -211,6 +214,7 @@
         const saved = await window.GD.progressStore?.saveQuizResult?.(state.module.id, result);
         state.quizResult = saved || result; region.replaceChildren(); renderQuizResult(region, state.quizResult); await recordProgress();
       } catch (error) {
+        submitting = false;
         submit.disabled = false; submit.textContent = 'Submit assessment'; window.GD.toast(error.message || 'The quiz could not be saved.', 'error');
       }
     });
@@ -269,6 +273,10 @@
     recordProgress();
   }
 
+  let lastSavedPayload = null;
+  let savingProgress = false;
+  let pendingSavePayload = null;
+
   async function recordProgress() {
     if (!window.GD.progressStore?.saveProgress) return;
     const total = state.steps.length;
@@ -279,7 +287,26 @@
       percent: completed ? 100 : Math.min(99, Math.round(state.visited.size / total * 100)),
       completed
     };
-    try { await window.GD.progressStore.saveProgress(state.module.id, payload); } catch { /* Preview and signed-out lessons remain readable. */ }
+    const payloadJson = JSON.stringify(payload);
+    if (lastSavedPayload === payloadJson) return;
+    if (savingProgress) {
+      pendingSavePayload = payload;
+      return;
+    }
+    savingProgress = true;
+    lastSavedPayload = payloadJson;
+    try {
+      await window.GD.progressStore.saveProgress(state.module.id, payload);
+    } catch {
+      lastSavedPayload = null;
+    } finally {
+      savingProgress = false;
+      if (pendingSavePayload) {
+        const nextPayload = pendingSavePayload;
+        pendingSavePayload = null;
+        recordProgress();
+      }
+    }
   }
 
   function goTo(index) {

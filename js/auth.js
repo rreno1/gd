@@ -77,15 +77,28 @@
     const services = await GD.firebaseReady;
     updateNavigation(GD.authState, services);
 
+    let signingIn = false;
     const signIn = async () => {
-      const button = document.getElementById('signInButton');
-      if (button) button.disabled = true;
+      if (signingIn) return;
+      signingIn = true;
+      const buttons = [
+        document.getElementById('signInButton'),
+        document.getElementById('progressSignInButton')
+      ].filter(Boolean);
+      buttons.forEach(btn => {
+        btn.disabled = true;
+        btn.dataset.originalText = btn.textContent;
+        btn.textContent = 'Connecting…';
+      });
       try {
         await services.signIn();
       } catch (error) {
         reportError(error, 'Sign-in failed.');
-      } finally {
-        if (button && services.mode !== 'unavailable') button.disabled = false;
+        buttons.forEach(btn => {
+          btn.disabled = services.mode === 'unavailable';
+          btn.textContent = btn.dataset.originalText || 'Sign in with Google';
+        });
+        signingIn = false;
       }
     };
 
