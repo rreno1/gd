@@ -4,7 +4,7 @@ window.GDLessons["principles"] = {
   "id": "principles",
   "title": "Principles of Design",
   "kicker": "Relationships that organize visual meaning",
-  "description": "The principles — balance, contrast, hierarchy, alignment, proximity, repetition, movement, proportion, and unity — describe how elements relate to one another. Mastering these relationships turns a collection of parts into a clear, cohesive message.",
+  "description": "The 15 principles — balance, contrast, alignment, hierarchy, repetition, proximity, white space, proportion, movement, rhythm, unity, variety, pattern, emphasis, and simplicity — describe how elements relate to one another. Mastering these relationships turns a collection of parts into a clear, cohesive message.",
   "duration": "60 minutes",
   "difficulty": "Beginner",
   "accent": "#9f8cff",
@@ -73,7 +73,7 @@ window.GDLessons["principles"] = {
   ],
 
   "objectives": [
-    "Identify the major principles of design — balance, contrast, hierarchy, alignment, proximity, repetition, movement, proportion, and unity — and explain how each organizes visual relationships.",
+    "Identify the 15 principles of design — balance, contrast, alignment, hierarchy, repetition, proximity, white space, proportion, movement, rhythm, unity, variety, pattern, emphasis, and simplicity — and explain how each organizes visual relationships.",
     "Distinguish between symmetrical, asymmetrical, and radial balance and select the appropriate type for a given communication goal.",
     "Apply contrast and emphasis strategically to create focal points and establish a clear visual hierarchy in a layout.",
     "Use alignment, proximity, and white space to group related content, separate unrelated content, and produce clean, readable compositions.",

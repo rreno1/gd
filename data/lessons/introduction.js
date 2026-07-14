@@ -75,7 +75,7 @@ window.GDLessons["introduction"] = {
   objectives: [
     "Define graphic design and explain why it is a purposeful, audience-centered discipline rather than decoration.",
     "Distinguish between art and design by comparing their intentions, constraints, audiences, and evaluation criteria.",
-    "Identify the core elements and principles of visual language—including hierarchy, contrast, alignment, proximity, and negative space—and describe how each shapes meaning.",
+    "Identify the core elements and the 15 principles of visual language—including balance, contrast, alignment, hierarchy, repetition, proximity, white space, proportion, movement, rhythm, unity, variety, pattern, emphasis, and simplicity—and describe how each shapes meaning.",
     "Trace the major historical milestones of graphic design from early printing to the digital era and explain how technology shaped visual communication.",
     "Apply a structured problem-solving workflow—brief, research, ideation, execution, feedback, and delivery—to a simple design task."
   ],
@@ -107,6 +107,11 @@ window.GDLessons["introduction"] = {
       ],
       important: "Design is not decoration. Every visual choice—typeface, color, layout, image—must serve the communication objective. If an element does not contribute to the message, it is visual noise that competes for the viewer's attention.",
       tip: "Before opening any design software, write a single sentence that completes the phrase: 'After seeing this design, the audience should...' If you cannot finish that sentence, you are not ready to design.",
+      visual: {
+        type: "layout-comparer",
+        title: "Layout Structure & Proportions",
+        instructions: "Toggle between unstructured raw text and structured design. Notice how alignment, font weights, and spacing help readers parse information."
+      },
       check: {
         question: "What is the primary purpose of graphic design?",
         options: [
@@ -163,13 +168,13 @@ window.GDLessons["introduction"] = {
       title: "The visual language of design",
       body: [
         "Just as spoken language has vocabulary, grammar, and syntax, visual communication has its own language composed of elements and principles. The elements of design—line, shape, color, texture, space, form, and typography—are the raw vocabulary, the building blocks from which all visual messages are constructed. A line can divide, connect, direct, or define. A shape can represent, organize, or symbolize. Color can attract, repel, soothe, or alarm. Understanding these elements individually is the first step toward fluency in visual language.",
-        "The principles of design—hierarchy, contrast, alignment, proximity, repetition, balance, and movement—are the grammar that governs how elements are combined. Contrast creates emphasis by making differences obvious: a large red headline against a small gray body text immediately signals which content is most important. Alignment creates visual connections by placing elements along shared edges or axes, producing an orderly, professional appearance. Proximity groups related items together so the viewer perceives them as a unit, while separation signals distinct categories. These principles are not arbitrary aesthetic preferences; they are rooted in how the human visual system perceives and processes information.",
+        "The 15 principles of design—balance, contrast, alignment, hierarchy, repetition, proximity, white space, proportion, movement, rhythm, unity, variety, pattern, emphasis, and simplicity—are the grammar that governs how elements are combined. Contrast creates emphasis by making differences obvious: a large red headline against a small gray body text immediately signals which content is most important. Alignment creates visual connections by placing elements along shared edges or axes, producing an orderly, professional appearance. Proximity groups related items together so the viewer perceives them as a unit, while separation signals distinct categories. These principles are not arbitrary aesthetic preferences; they are rooted in how the human visual system perceives and processes information.",
         "Visual hierarchy is arguably the most critical principle for communication design. It determines the order in which a viewer processes information. Designers establish hierarchy through multiple cues working in concert: size (larger elements are read first), weight (bolder elements attract attention), color (high-contrast or saturated colors stand out), position (top-left in left-to-right cultures carries primary importance), and isolation (an element surrounded by negative space draws the eye). When hierarchy is clear, the viewer absorbs the intended message almost instantly. When hierarchy is absent or contradictory, the viewer's eye wanders and the message is lost.",
         "Negative space—the empty areas around and between elements—is not merely leftover background. It is an active design tool that improves legibility, creates visual breathing room, and can even form meaningful shapes. The FedEx logo, for example, hides an arrow in the negative space between the 'E' and the 'x,' subtly reinforcing the brand's message of speed and direction. Mastering negative space is one of the hallmarks of a skilled designer; beginners tend to fill every available area, while experienced designers know that what you leave out is as important as what you include."
       ],
       keyPoints: [
         "The elements of design (line, shape, color, texture, space, form, typography) are the vocabulary of visual communication.",
-        "The principles of design (hierarchy, contrast, alignment, proximity, repetition, balance, movement) are the grammar that organizes elements into meaningful messages.",
+        "The 15 principles of design (balance, contrast, alignment, hierarchy, repetition, proximity, white space, proportion, movement, rhythm, unity, variety, pattern, emphasis, simplicity) are the grammar that organizes elements into meaningful messages.",
         "Visual hierarchy controls the reading order: size, weight, color, position, and isolation all influence what the viewer sees first.",
         "Contrast is essential for emphasis—without sufficient contrast, all elements compete equally for attention.",
         "Proximity groups related content and separates unrelated content, leveraging the Gestalt principle of grouping.",
@@ -183,6 +188,11 @@ window.GDLessons["introduction"] = {
       ],
       important: "Visual hierarchy is the single most important principle in communication design. If a viewer cannot instantly identify the primary message, the design has failed—regardless of how beautiful it may appear.",
       tip: "Squint at your design from arm's length. The elements that remain visible are your hierarchy. If the first thing you see is not the most important message, adjust size, contrast, or position until it is.",
+      visual: {
+        type: "visual-language-explorer",
+        title: "Visual Language Explorer",
+        instructions: "Toggle the design elements below to see how grid, color, and typography work together to turn basic shapes into a premium layout."
+      },
       check: {
         question: "Which principle of design determines the order in which a viewer processes information?",
         options: [
@@ -259,6 +269,11 @@ window.GDLessons["introduction"] = {
       ],
       important: "Always match the image type to the task: use vectors for anything that must scale (logos, icons, type) and rasters for pixel-rich content (photographs, complex textures). Using the wrong type leads to quality loss, bloated file sizes, or both.",
       tip: "When exporting assets for web, use SVG for icons and logos, WebP or optimized PNG for images with transparency, and compressed JPEG for photographs. Always test your exports at their actual display size on a real device before delivery.",
+      visual: {
+        type: "vector-raster-zoom",
+        title: "Vector vs Raster Zoom Comparison",
+        instructions: "Drag the slider to zoom in. Notice how the raster image on the left pixelates, while the vector image on the right remains perfectly sharp."
+      },
       check: {
         question: "Why are vector graphics preferred for logo design?",
         options: [
@@ -587,7 +602,7 @@ window.GDLessons["introduction"] = {
     takeaways: [
       "Graphic design is purposeful visual communication—every decision should serve a defined audience, message, and context.",
       "Art and design share visual tools but differ in intent: design is accountable to the audience and the brief, while art is accountable to the creator's vision.",
-      "The visual language of design—elements (line, shape, color, type) and principles (hierarchy, contrast, alignment, proximity, repetition)—is learnable and systematic.",
+      "The visual language of design—elements (line, shape, color, type) and the 15 foundational principles (balance, contrast, alignment, hierarchy, repetition, proximity, white space, proportion, movement, rhythm, unity, variety, pattern, emphasis, simplicity)—is learnable and systematic.",
       "Design history, from Gutenberg to digital media, shows that technology drives creative possibility—and that enduring principles transcend any single tool or era.",
       "A structured problem-solving workflow—brief, research, ideation, execution, feedback, delivery—produces stronger outcomes than improvisation alone.",
       "Ethical design demands accessibility, honest communication, cultural sensitivity, and environmental responsibility as non-negotiable professional standards."

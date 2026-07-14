@@ -115,6 +115,11 @@ window.GDLessons["elements-of-design"] = {
       ],
       important: "A line's communicative power lies in its qualities, not merely its presence. Two lines of different weight, edge, and direction say completely different things — treat each line as a deliberate design choice, not a default separator.",
       tip: "When you need to separate content areas, try using white space or a subtle value change before reaching for a drawn line. Explicit lines add visual weight; often the simplest solution is no line at all.",
+      visual: {
+        type: "line-weight-curves",
+        title: "Line Weight & Curvature Explorer",
+        instructions: "Adjust the weight, bend (curvature), and dash spacing. Observe how changing these properties alters the visual character and mood of the line."
+      },
       check: {
         question: "Which type of line is perceived by the viewer without being physically drawn?",
         options: [
@@ -153,6 +158,11 @@ window.GDLessons["elements-of-design"] = {
       ],
       important: "Shape communicates meaning before content does. A triangle says 'caution' before the viewer reads the word inside it. A circle says 'complete' before the viewer sees the logo. Choose shapes that align with and reinforce your message.",
       tip: "Test every icon and logo in solid-black silhouette. If the shape is not immediately recognizable without color or internal detail, the design needs simplification — especially for small-size applications like favicons and app icons.",
+      visual: {
+        type: "positive-negative-space",
+        title: "Positive Shape vs Negative Space",
+        instructions: "Toggle the visualization mode. Notice how the space between the circles is carved out to form a secondary shape (an arrow) in the negative space."
+      },
       check: {
         question: "Which type of shape is most associated with warmth, natural forms, and approachability?",
         options: [
@@ -191,6 +201,11 @@ window.GDLessons["elements-of-design"] = {
       ],
       important: "Consistent light logic is non-negotiable when implying form. If the light appears to come from the upper left on one element and the lower right on another, the composition's spatial illusion collapses and the design feels amateurish.",
       tip: "When combining photographs or illustrations in a single layout, check that all images share a consistent light direction. Mismatched lighting creates an unsettling sense that elements exist in different worlds rather than a unified composition.",
+      visual: {
+        type: "form-light-source",
+        title: "Implied Form & Light Logic",
+        instructions: "Drag the sliders to move the light source and adjust ambient brightness. See how consistent shading changes a 2D circle into a 3D sphere."
+      },
       check: {
         question: "What is the core shadow on a three-dimensional object?",
         options: [
@@ -229,6 +244,11 @@ window.GDLessons["elements-of-design"] = {
       ],
       important: "Negative space is not empty space — it is designed space. Every margin, gap, and area of 'nothing' in a professional layout is there by intention, serving functions of grouping, emphasis, breathing room, and visual hierarchy.",
       tip: "When a layout feels cluttered, your first instinct should be to remove elements, not add separators. More white space between groups often solves readability problems that lines, boxes, and borders only make worse.",
+      visual: {
+        type: "space-proximity",
+        title: "Space & Proximity Grouping",
+        instructions: "Adjust the gap and isolation margins. Observe how elements are perceived as belonging to separate groups only when the outer margins are significantly wider than internal gaps."
+      },
       check: {
         question: "What famous logo uses negative space to hide an arrow between its letterforms?",
         options: [
@@ -437,6 +457,6 @@ window.GDLessons["elements-of-design"] = {
       "Texture adds sensory richness but must be scaled and managed so it supports content rather than competing with it.",
       "Color communicates emotion and identity instantly, but must always be paired with redundant cues for accessibility."
     ],
-    nextSteps: "Continue to Principles of Design to learn how balance, contrast, hierarchy, alignment, proximity, repetition, movement, proportion, and unity organize these elements into clear, cohesive visual messages."
+    nextSteps: "Continue to Principles of Design to learn how the 15 principles of design — balance, contrast, alignment, hierarchy, repetition, proximity, white space, proportion, movement, rhythm, unity, variety, pattern, emphasis, and simplicity — organize these elements into clear, cohesive visual messages."
   }
 };

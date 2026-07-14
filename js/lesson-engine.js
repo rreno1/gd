@@ -173,6 +173,22 @@
     }
 
     columns.append(prose, aside); wrap.append(columns);
+
+    if (step.visual) {
+      const visualBox = node('div', 'section-visual-box');
+      if (window.GD && window.GD.visuals && window.GD.visuals.render) {
+        try {
+          const renderedVisual = window.GD.visuals.render(step.visual);
+          if (renderedVisual) {
+            visualBox.append(renderedVisual);
+            wrap.append(visualBox);
+          }
+        } catch (err) {
+          console.error("Error rendering visual:", err);
+        }
+      }
+    }
+
     const example = node('div', 'lesson-example'); example.append(node('span', '', 'Example'), node('p', '', step.example)); wrap.append(example);
 
     // Inline knowledge check — formative, not graded
