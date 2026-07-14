@@ -40,11 +40,9 @@
   }
 
   function showState(name) {
-    const loading = document.getElementById('progressLoading');
     const signedOut = document.getElementById('progressSignedOut');
     const approval = document.getElementById('approvalNotice');
     const content = document.getElementById('progressContent');
-    if (loading) loading.hidden = name !== 'loading';
     if (signedOut) signedOut.hidden = name !== 'signedOut';
     if (approval) approval.hidden = name !== 'approval';
     if (content) content.hidden = name !== 'content';
@@ -237,16 +235,6 @@
       window.GD?.hideLoader?.();
     } catch (error) {
       console.error('Progress dashboard could not be loaded.', error);
-      const panel = document.getElementById('progressLoading');
-      if (panel) {
-        panel.querySelector('.spinner')?.remove();
-        const heading = panel.querySelector('h2');
-        const copy = panel.querySelector('p');
-        if (heading) heading.textContent = 'Progress unavailable';
-        if (copy) copy.textContent = error?.message || 'Refresh the page to try again.';
-        panel.setAttribute('role', 'alert');
-      }
-      showState('loading');
       window.GD?.hideLoader?.();
     }
   }

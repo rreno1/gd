@@ -63,7 +63,6 @@
   }
 
   function showLessonError(title, reason) {
-    dom.loading.hidden = true;
     dom.error.hidden = false;
     const heading = dom.error.querySelector('h1');
     const copy = dom.error.querySelector('p');
@@ -145,10 +144,74 @@
     const columns = node('div', 'lesson-reading-grid');
     const prose = node('div', 'lesson-prose');
     step.body.forEach(paragraph => prose.append(node('p', '', paragraph)));
+
+    // Important callout — renders after body paragraphs
+    if (step.important) {
+      const callout = node('aside', 'callout-important');
+      callout.append(node('span', 'callout-icon', '⚠'), node('div'));
+      callout.lastChild.append(node('strong', '', 'Important'), node('p', '', step.important));
+      prose.append(callout);
+    }
+
+    // Detailed lecture notes — deeper exploration below the main prose
+    if (Array.isArray(step.detailedNotes) && step.detailedNotes.length) {
+      const notes = node('div', 'lecture-notes');
+      notes.append(node('p', 'eyebrow', 'Lecture notes'));
+      step.detailedNotes.forEach(paragraph => notes.append(node('p', '', paragraph)));
+      prose.append(notes);
+    }
+
     const aside = node('aside', 'key-points'); aside.append(node('p', 'eyebrow', 'Key points'));
     const list = node('ul'); step.keyPoints.forEach(point => list.append(node('li', '', point))); aside.append(list);
+
+    // Pro Tip callout — inside the sidebar
+    if (step.tip) {
+      const tipBox = node('div', 'callout-tip');
+      tipBox.append(node('span', 'callout-icon', '💡'), node('div'));
+      tipBox.lastChild.append(node('strong', '', 'Pro Tip'), node('p', '', step.tip));
+      aside.append(tipBox);
+    }
+
     columns.append(prose, aside); wrap.append(columns);
     const example = node('div', 'lesson-example'); example.append(node('span', '', 'Example'), node('p', '', step.example)); wrap.append(example);
+
+    // Inline knowledge check — formative, not graded
+    if (step.check) {
+      const check = node('div', 'knowledge-check');
+      check.append(node('p', 'eyebrow', 'Check your understanding'));
+      check.append(node('p', 'check-question', step.check.question));
+      const options = node('div', 'check-options');
+      step.check.options.forEach((option, optionIndex) => {
+        const label = node('label', 'check-option');
+        const input = document.createElement('input');
+        input.type = 'radio'; input.name = `check-${step.id}`; input.value = optionIndex;
+        label.append(input, node('span', 'option-letter', String.fromCharCode(65 + optionIndex)), node('span', '', option));
+        options.append(label);
+      });
+      check.append(options);
+      const feedback = node('div', 'check-feedback');
+      const revealBtn = button('Check Answer', 'button secondary compact');
+      revealBtn.addEventListener('click', () => {
+        const selected = options.querySelector('input:checked');
+        if (!selected) return;
+        const correct = Number(selected.value) === step.check.answer;
+        check.classList.add('revealed');
+        feedback.replaceChildren();
+        feedback.append(node('p', correct ? 'check-correct' : 'check-incorrect',
+          correct ? '✓ Correct!' : '✗ Not quite.'));
+        if (step.check.explanation) feedback.append(node('p', 'check-explanation', step.check.explanation));
+        revealBtn.disabled = true;
+        options.querySelectorAll('input').forEach(input => { input.disabled = true; });
+        // Highlight correct option
+        options.querySelectorAll('.check-option').forEach((label, index) => {
+          if (index === step.check.answer) label.classList.add('is-correct');
+          else if (label.querySelector('input:checked')) label.classList.add('is-wrong');
+        });
+      });
+      check.append(revealBtn, feedback);
+      wrap.append(check);
+    }
+
     return wrap;
   }
 
@@ -333,7 +396,7 @@
 
   async function init() {
     Object.assign(dom, {
-      loading: document.getElementById('lessonLoading'), error: document.getElementById('lessonError'), layout: document.getElementById('lessonLayout'), stage: document.getElementById('lessonStage'), content: document.getElementById('lessonContent'),
+      error: document.getElementById('lessonError'), layout: document.getElementById('lessonLayout'), stage: document.getElementById('lessonStage'), content: document.getElementById('lessonContent'),
       navTitle: document.getElementById('lessonNavTitle'), position: document.getElementById('lessonPosition'), controlPosition: document.getElementById('controlPosition'), miniProgress: document.getElementById('miniProgressBar'), previous: document.getElementById('previousSection'), next: document.getElementById('nextSection'),
       outline: document.getElementById('lessonOutline'), outlineList: document.getElementById('outlineList'), outlineTitle: document.getElementById('outlineTitle'), outlineToggle: document.getElementById('outlineToggle'), outlineClose: document.getElementById('outlineClose'), outlineOverlay: document.getElementById('outlineOverlay')
     });
@@ -353,7 +416,7 @@
       state.quizResult = await window.GD.progressStore?.loadQuizResult?.(moduleId).catch?.(() => null) || null;
       document.documentElement.style.setProperty('--accent', state.lesson.accent || state.module.accent);
       dom.navTitle.textContent = state.lesson.title; dom.outlineTitle.textContent = state.lesson.title;
-      dom.loading.hidden = true; dom.layout.hidden = false;
+      dom.layout.hidden = false;
       renderStep();
       window.GD?.hideLoader?.();
       dom.previous.addEventListener('click', () => goTo(state.index - 1)); dom.next.addEventListener('click', () => goTo(state.index + 1));
