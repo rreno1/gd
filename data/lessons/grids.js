@@ -126,7 +126,6 @@ window.GDLessons["grids"] = {
     type: "grid-lab",
     title: "Construct a responsive content grid",
     instructions: "Build a layout for one feature story, three supporting items, and one action. Define margins, columns, gutters, at least two flowlines, and one spatial zone. Compare a 12-column version with another track count, then create wide, medium, and narrow arrangements based on where the real content becomes cramped. Explain one place where CSS Grid, Flexbox, or a deliberate combination best expresses the relationships.",
-    legacyPath: "grids/grids.html"
   },
   review: [
     { question: "What does a grid contribute to a composition?", answer: "It supplies shared alignment, spacing, and repetition relationships that support consistency and efficient placement." },

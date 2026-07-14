@@ -12,7 +12,7 @@ async function listFiles(directory) {
   const nested = await Promise.all(entries.map(entry => {
     const full = path.join(directory, entry.name);
     if (entry.isDirectory()) {
-      const ignoreDirs = ['.git', '.github', 'node_modules', 'tests', 'tools', '.agents', '.tmp-edge-admin', 'introduction', 'elements-of-design', 'principles', 'typography', 'color-theory', 'grids', 'contrast-accessibility'];
+      const ignoreDirs = ['.git', '.github', 'node_modules', 'tests', 'tools', '.agents', '.tmp-edge-admin'];
       if (ignoreDirs.includes(entry.name)) {
         return [];
       }
@@ -41,9 +41,7 @@ for (const file of htmlFiles) {
     try {
       await access(target);
     } catch {
-      const legacyFolders = ['introduction', 'elements-of-design', 'principles', 'typography', 'color-theory', 'grids', 'contrast-accessibility'];
-      const isLegacyRef = legacyFolders.some(folder => ref.startsWith(folder + '/'));
-      if (!ref.includes('firebase-config.js') && !isLegacyRef) {
+      if (!ref.includes('firebase-config.js')) {
         failures.push(`${path.relative(root, file)} references missing ${ref}`);
       }
     }

@@ -18,7 +18,7 @@ async function filesBelow(directory) {
   return (await Promise.all(entries.map(entry => {
     const full = path.join(directory, entry.name);
     if (entry.isDirectory()) {
-      const ignoreDirs = ['.git', '.github', 'node_modules', 'tests', 'tools', '.agents', '.tmp-edge-admin', 'introduction', 'elements-of-design', 'principles', 'typography', 'color-theory', 'grids', 'contrast-accessibility'];
+      const ignoreDirs = ['.git', '.github', 'node_modules', 'tests', 'tools', '.agents', '.tmp-edge-admin'];
       if (ignoreDirs.includes(entry.name)) return [];
       return filesBelow(full);
     }
@@ -50,8 +50,7 @@ for (const moduleId of moduleIds) {
       assert.ok(section.body.length >= 1);
       assert.ok(section.keyPoints.length >= 2);
     }
-    assert.ok(lesson.activity.type && lesson.activity.legacyPath);
-    await access(path.join(root, lesson.activity.legacyPath));
+    assert.ok(lesson.activity.type);
     assert.ok(lesson.review.length >= 5);
     assert.equal(lesson.quiz.length, 15);
     for (const question of lesson.quiz) {

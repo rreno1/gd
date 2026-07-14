@@ -148,9 +148,6 @@
   function renderActivity() {
     const wrap = node('section', 'lesson-section activity-section');
     wrap.append(window.GD.activities.render(state.lesson.activity));
-    const legacy = document.createElement('a'); legacy.className = 'legacy-callout'; legacy.href = state.lesson.activity.legacyPath; legacy.target = '_blank'; legacy.rel = 'noopener noreferrer';
-    legacy.append(node('strong', '', 'Need the full original studio?'), node('span', '', 'Open the preserved interactive deck, including its specialized activities. ↗'));
-    wrap.append(legacy);
     return wrap;
   }
 
@@ -304,7 +301,7 @@
     Object.assign(dom, {
       loading: document.getElementById('lessonLoading'), error: document.getElementById('lessonError'), layout: document.getElementById('lessonLayout'), stage: document.getElementById('lessonStage'), content: document.getElementById('lessonContent'),
       navTitle: document.getElementById('lessonNavTitle'), position: document.getElementById('lessonPosition'), controlPosition: document.getElementById('controlPosition'), miniProgress: document.getElementById('miniProgressBar'), previous: document.getElementById('previousSection'), next: document.getElementById('nextSection'),
-      outline: document.getElementById('lessonOutline'), outlineList: document.getElementById('outlineList'), outlineTitle: document.getElementById('outlineTitle'), outlineToggle: document.getElementById('outlineToggle'), outlineClose: document.getElementById('outlineClose'), outlineOverlay: document.getElementById('outlineOverlay'), legacy: document.getElementById('legacyDeckLink')
+      outline: document.getElementById('lessonOutline'), outlineList: document.getElementById('outlineList'), outlineTitle: document.getElementById('outlineTitle'), outlineToggle: document.getElementById('outlineToggle'), outlineClose: document.getElementById('outlineClose'), outlineOverlay: document.getElementById('outlineOverlay')
     });
     const moduleId = getModuleId();
     if (!moduleId) { showLessonError('Lesson not found', 'Choose one of the seven course modules from the home page.'); return; }
@@ -321,7 +318,7 @@
       (saved?.visitedSections || []).filter(id => validStepIds.has(id)).forEach(id => state.visited.add(id));
       state.quizResult = await window.GD.progressStore?.loadQuizResult?.(moduleId).catch?.(() => null) || null;
       document.documentElement.style.setProperty('--accent', state.lesson.accent || state.module.accent);
-      dom.navTitle.textContent = state.lesson.title; dom.outlineTitle.textContent = state.lesson.title; dom.legacy.href = state.lesson.activity.legacyPath;
+      dom.navTitle.textContent = state.lesson.title; dom.outlineTitle.textContent = state.lesson.title;
       dom.loading.hidden = true; dom.layout.hidden = false;
       renderStep();
       dom.previous.addEventListener('click', () => goTo(state.index - 1)); dom.next.addEventListener('click', () => goTo(state.index + 1));

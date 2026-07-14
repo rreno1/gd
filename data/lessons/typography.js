@@ -126,7 +126,6 @@ window.GDLessons["typography"] = {
     type: "type-lab",
     title: "Tune a reading system",
     instructions: "Set a heading, subheading, paragraph, caption, and action using one or two type families. Establish three hierarchy levels, then adjust leading, tracking, alignment, and column width. Test the paragraph at narrow and wide sizes. Record which change most improved scanning and which most improved sustained reading.",
-    legacyPath: "typography/typography.html"
   },
   review: [
     { question: "How do typeface and font differ?", answer: "A typeface is the designed letterform system; a font is a usable instance or file representing a style or variation of that design." },

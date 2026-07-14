@@ -125,7 +125,6 @@ window.GDLessons["principles"] = {
     type: "principle-lab",
     title: "Rebalance and reprioritize",
     instructions: "Arrange a title, image, date, description, and action in the lab. First build a symmetrical version, then an asymmetrical version using the same content. In each, identify the first three points of attention. Adjust contrast, proximity, and alignment until the reading order matches the message, then explain how unity and variety coexist.",
-    legacyPath: "principles/principles.html"
   },
   review: [
     { question: "What creates visual weight?", answer: "Factors include size, value contrast, saturation, detail, isolation, position, texture, and subject matter." },
