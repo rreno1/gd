@@ -264,6 +264,9 @@ select option {
   .nav-link { min-height: 48px; padding: 0 .8rem; border-radius: 8px; }.nav-link.active { background: var(--surface-2); }.nav-link::after { display: none; }
   .drawer-overlay { position: fixed; z-index: 70; inset: 0; border: 0; background: rgba(0,0,0,.62); }
   .drawer-open .drawer-overlay { display: block; }
+  .drawer-open { overflow: hidden; }
+  .drawer-open .portal-nav,
+  .drawer-open .admin-sidebar { z-index: 90; }
   .hero-section { min-height: auto; grid-template-columns: 1fr; padding-top: 4.5rem; }
   .hero-copy { order: 1; }.hero-poster { order: 2; width: min(100%, 420px); min-height: 0; justify-self: center; }
   .hero-facts { gap: 1rem; justify-content: space-between; }.hero-facts strong { font-size: 1.15rem; }.hero-facts span { font-size: .61rem; }

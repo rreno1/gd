@@ -141,4 +141,4 @@ git commit -m "Configure Firebase keys"
 git push origin main
 ```
 
-Your FREE ELEC 100 interactive portal is now ready! 🚀
+Your FREE ELEC 101 - Graphic Design interactive portal is now ready! 🚀
